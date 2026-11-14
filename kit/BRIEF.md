@@ -38,3 +38,15 @@ Também: posicionamento "nova era da IA" e produto (telas reais).
 ## Kit técnico
 - Ferramentas em kit/tools (Python + Playwright com /usr/bin/google-chrome, PIL, fontTools). Elas esperam estes caminhos: /home/claude/tools, /home/claude/fonts/fs, /home/claude/fonts/package/dist/fonts/geist-sans/Geist-SemiBold.ttf, /home/claude/assets/plataforma, /home/claude/out.
 - Exemplos de referência: carousel.py (carrossel claro), era.py (carrossel com temas claro/escuro/lima), post_resumo_v.py (mockup de navegador), stories*.py (stories), reel.py (Reel animado).
+
+## Acervo de layouts
+Varie os layouts ao longo das semanas. Não use o mesmo layout em dois carrosséis seguidos.
+
+### Post-texto (aprovado em 14/11/2026)
+- Referência: kit/layouts/post-texto/ · ferramenta: kit/tools/layout_post_texto.py (render(slides, prefixo, fundos)).
+- Card branco centralizado, como um post de rede social: símbolo da 4metrics + "4metrics" + "Revenue Intelligence". Sem @, sem selo de verificado.
+- Uma frase CURTA por slide (até ~8 palavras), com hl() só na palavra-chave. Pouco texto: a ilustração explica o resto.
+- Cada slide leva uma ilustração dentro do card (SVG/HTML da marca, recorte de cena da plataforma ou foto de banco de imagens na capa). Não use slide só de texto, exceto o CTA.
+- Barra de progresso no rodapé (segmentos). Sem "1/7" ou número de tela.
+- Fundo alterna claro e névoa (escuro só se o post pedir). Capa com foto de banco de imagens que combine com o tema.
+- Funciona melhor no LinkedIn (parece conteúdo de pessoa). No Instagram, também funciona.
