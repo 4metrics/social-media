@@ -60,7 +60,7 @@ an = f'''<section class="s dk" id="an">{glow(380,80,700)}<svg width="1080" heigh
 <h1 style="font-size:72px;line-height:80px">Que o novo ano traga mais respostas <span class="hl">e menos achismo.</span></h1>
 <div style="position:relative;display:flex;flex-direction:column;gap:14px">
 <span style="font-size:22px;font-weight:600;color:{LIME};text-transform:uppercase;letter-spacing:.08em">Nossos desejos para o seu 2027</span>
-<div style="display:flex;gap:12px;flex-wrap:wrap">{wish("Número certo no dia 1")}{wish("Uma base, as mesmas regras")}{wish("IA com dado confiável")}</div></div>
+<div style="display:flex;gap:12px;flex-wrap:wrap">{wish("Número certo desde o dia 1")}{wish("Uma base, as mesmas regras.")}{wish("IA com dado confiável")}</div></div>
 <div class="foot">{logo(True)}</div></section>'''
 
 html = f"<html><head><meta charset='utf-8'><style>{CSS}</style></head><body>{bf}{nat}{an}</body></html>"
@@ -72,11 +72,11 @@ with sync_playwright() as p:
     pg.goto(f"file://{D}/festas.html"); pg.evaluate("document.fonts.ready"); pg.wait_for_timeout(900)
     print(pg.evaluate("""()=>[...document.querySelectorAll('section')].map(s=>{const r=s.getBoundingClientRect();
       return s.id+':'+[...s.querySelectorAll('*')].filter(e=>{const q=e.getBoundingClientRect();return q.width&&(q.right>r.right+1||q.bottom>r.bottom+1)&&!e.classList.contains('g')&&e.tagName!='circle'&&e.tagName!='svg'}).length})"""))
-    for sid, name in [("bf","2026-11-27-black-friday-v2"),("nat","2026-12-24-natal-v1"),("an","2026-12-31-ano-novo-v1")]:
+    for sid, name in [("bf","2026-11-27-black-friday-v2"),("nat","2026-12-24-natal-v1"),("an","2026-12-31-ano-novo-v2")]:
         pg.locator(f"#{sid}").screenshot(path=f"{D}/{name}.png")
     b.close()
 from PIL import Image
-fs=[f"{D}/{n}.png" for n in ("2026-11-27-black-friday-v2","2026-12-24-natal-v1","2026-12-31-ano-novo-v1")]
+fs=[f"{D}/{n}.png" for n in ("2026-11-27-black-friday-v2","2026-12-24-natal-v1","2026-12-31-ano-novo-v2")]
 sh=Image.new('RGB',(3*540+40,695),'#E1E7E4')
 for k,f in enumerate(fs): sh.paste(Image.open(f).convert('RGB').resize((540,675),Image.LANCZOS),(10+k*550,10))
 sh.save(f"{D}/visao-geral-festas.png")
