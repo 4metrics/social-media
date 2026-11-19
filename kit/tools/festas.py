@@ -12,7 +12,7 @@ for h, v in zip(hours, vals):
     bars += f'<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:10px"><div style="width:100%;height:{int(260*v/mx)}px;border-radius:8px 8px 3px 3px;background:{c}"></div><span style="font-size:18px;color:{MUTL}">{h}h</span></div>'
 bf = f'''<section class="s lt" id="bf">{glow(560,-260,760)}
 <span class="pill">Black Friday</span>
-<h1 style="font-size:86px;line-height:92px">Black Friday não espera <span class="hl">o relatório do mês.</span></h1>
+<h1 style="font-size:84px;line-height:90px">Hoje é a Black Friday.<br><span class="hl">O funil não espera o relatório.</span></h1>
 <p class="lead">Mídia, leads e vendas mudam a cada hora. Quem vê o funil no mesmo dia ajusta antes de a data acabar.</p>
 <div class="mid"><div class="card" style="padding:34px 36px;display:flex;flex-direction:column;gap:24px">
 <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:26px;font-weight:600">Leads por hora · Black Friday</span><span style="font-size:22px;color:{MUTL}">hoje</span></div>
@@ -72,11 +72,11 @@ with sync_playwright() as p:
     pg.goto(f"file://{D}/festas.html"); pg.evaluate("document.fonts.ready"); pg.wait_for_timeout(900)
     print(pg.evaluate("""()=>[...document.querySelectorAll('section')].map(s=>{const r=s.getBoundingClientRect();
       return s.id+':'+[...s.querySelectorAll('*')].filter(e=>{const q=e.getBoundingClientRect();return q.width&&(q.right>r.right+1||q.bottom>r.bottom+1)&&!e.classList.contains('g')&&e.tagName!='circle'&&e.tagName!='svg'}).length})"""))
-    for sid, name in [("bf","2026-11-27-black-friday-v1"),("nat","2026-12-24-natal-v1"),("an","2026-12-31-ano-novo-v1")]:
+    for sid, name in [("bf","2026-11-27-black-friday-v2"),("nat","2026-12-24-natal-v1"),("an","2026-12-31-ano-novo-v1")]:
         pg.locator(f"#{sid}").screenshot(path=f"{D}/{name}.png")
     b.close()
 from PIL import Image
-fs=[f"{D}/{n}.png" for n in ("2026-11-27-black-friday-v1","2026-12-24-natal-v1","2026-12-31-ano-novo-v1")]
+fs=[f"{D}/{n}.png" for n in ("2026-11-27-black-friday-v2","2026-12-24-natal-v1","2026-12-31-ano-novo-v1")]
 sh=Image.new('RGB',(3*540+40,695),'#E1E7E4')
 for k,f in enumerate(fs): sh.paste(Image.open(f).convert('RGB').resize((540,675),Image.LANCZOS),(10+k*550,10))
 sh.save(f"{D}/visao-geral-festas.png")
