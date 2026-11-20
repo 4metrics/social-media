@@ -27,6 +27,7 @@ Também: posicionamento "nova era da IA" e produto (telas reais).
 ## Formatos
 - Instagram feed 1080x1350 (post único ou carrossel). Reels 1080x1920.
 - LinkedIn: mesmo conteúdo do feed, legenda adaptada (mais profissional, 3 hashtags, CTA "comente 'diagnóstico' ou fale por mensagem"). Carrossel vai como documento PDF (publishImagesAsPDF + documentTitle). Stories não vão para o LinkedIn.
+- REGRA (Gabriel, 20/11/2026): todo post de feed no Instagram ganha também um story no mesmo dia, 30 min depois do feed (kit/tools/stories_feed.py: arte do feed + "Post novo no feed").
 - Instagram: legenda direta, até 5 hashtags (nunca #bigquery ou #dataform).
 - Reels: SEMPRE mandar o texto de cada tela para aprovação antes de animar.
 
