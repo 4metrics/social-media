@@ -68,7 +68,7 @@ def cal():
 <span style="display:inline-flex;align-items:center;gap:10px;font-size:22px;color:#D92D20;font-weight:600"><i style="width:12px;height:12px;border-radius:9px;background:#D92D20"></i>esperando o fechamento</span></div>
 <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:8px">{head}{cells}</div></div>'''
 
-c1 = cslide(1, f'''<h1 style="font-size:92px;line-height:98px">O ano acabou. Quando você vai saber <span class="hl">como ele fechou?</span></h1>
+c1 = cslide(1, f'''<h1 style="font-size:84px;line-height:92px">Um novo ano começa. Quanto tempo a sua empresa leva <span class="hl">para fechar o ano anterior?</span></h1>
 <div class="mid">{cal()}</div>''', glow(560, -260, 760))
 
 def file(n, c): return f'<div class="card" style="height:92px;padding:0 28px;display:flex;align-items:center;gap:18px;font-size:28px;font-weight:600"><i style="width:16px;height:16px;border-radius:4px;background:{c}"></i>{n}</div>'

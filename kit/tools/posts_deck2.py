@@ -120,18 +120,18 @@ def c2_6(t):
 C2 = [("lima", c2_1, None, True, None), ("claro", c2_2, None, True, None), ("escuro", c2_3, None, True, (500, 300, 900)),
       ("nevoa", c2_4, None, False, None), ("claro", c2_5, None, True, (500, 500, 800)), ("lima", c2_6, None, True, None)]
 
-# ===================== CARROSSEL 3 · "achismo em 30 dias" =====================
+# ===================== CARROSSEL 3 · "achismo em 14 dias" =====================
 def c3_1(t):
     return (f'<div style="position:absolute;left:0;top:520px;width:1080px;height:830px;background:linear-gradient(180deg,rgba(5,19,28,0) 0%,#05131C 30%)"></div>'
-            + box(72, 760, 936, 0, f'<h1 style="font-size:100px;line-height:104px;color:#FFFFFF">Como sair do achismo {mk(t,"em 30 dias.")}</h1>'
+            + box(72, 760, 936, 0, f'<h1 style="font-size:100px;line-height:104px;color:#FFFFFF">Como sair do achismo {mk(t,"em 14 dias.")}</h1>'
                   f'<p style="margin-top:26px;font-size:34px;line-height:46px;color:#9AA7B0">Sem contratar time de dados. Sem trocar de ferramenta.</p>'))
 def letter(L, bg, tx): return f'<div class="d" style="width:200px;height:200px;border-radius:48px;background:{bg};color:{tx};display:flex;align-items:center;justify-content:center;font-size:130px">{L}</div>'
 def c3_2(t):
-    return (box(72, 110, 936, 0, f'<div style="display:flex;align-items:center;gap:36px">{letter("F","#EAF5DD","#406500")}<div><p style="font-size:28px;color:#4F5B63;font-weight:600">Semanas 1 e 2</p><h2 style="font-size:84px;line-height:88px">Fundação</h2></div></div>'
+    return (box(72, 110, 936, 0, f'<div style="display:flex;align-items:center;gap:36px">{letter("F","#EAF5DD","#406500")}<div><p style="font-size:28px;color:#4F5B63;font-weight:600">Semana 1</p><h2 style="font-size:84px;line-height:88px">Fundação</h2></div></div>'
                 f'<p style="margin-top:34px;font-size:38px;line-height:50px">A gente junta CRM, ERP, mídia e planilhas {mk(t,"num lugar só.")} E escreve as regras do seu negócio.</p>')
             + box(40, 640, 1000, 0, f'<img src="{u(SITE+"/metodo/construcao-camada-claro-estatico.webp")}" style="width:1000px">'))
 def c3_3(t):
-    return (box(72, 110, 936, 0, f'<div style="display:flex;align-items:center;gap:36px">{letter("I","#FFFFFF","#406500")}<div><p style="font-size:28px;color:#3D4A3F;font-weight:600">Semanas 3 e 4</p><h2 style="font-size:84px;line-height:88px">Inteligência</h2></div></div>'
+    return (box(72, 110, 936, 0, f'<div style="display:flex;align-items:center;gap:36px">{letter("I","#FFFFFF","#406500")}<div><p style="font-size:28px;color:#3D4A3F;font-weight:600">Semana 2</p><h2 style="font-size:84px;line-height:88px">Inteligência</h2></div></div>'
                 f'<p style="margin-top:34px;font-size:38px;line-height:50px">Você abre a plataforma e {mk(t,"já vê onde agir.")}</p>')
             + box(72, 520, 1150, 0, f'<img class="shot" src="{u(TEL+"/resumo-executivo-desktop.png")}" style="width:1150px">'))
 def c3_4(t):
@@ -139,7 +139,7 @@ def c3_4(t):
                 f'<p style="margin-top:34px;font-size:38px;line-height:50px">A resposta {mk(t,"chega até você:")} no e-mail, no Slack, no Teams. Antes da reunião.</p>')
             + box(60, 620, 960, 0, f'<div style="background:#FFFFFF;border-radius:28px;padding:20px"><img src="{u(SITE+"/plataforma/decisao-chega-claro-estatico.webp")}" style="width:920px;display:block"></div>'))
 def c3_5(t):
-    return (box(72, 260, 936, 0, f'<p class="d" style="font-size:300px;line-height:280px;letter-spacing:-0.05em">30</p><h2 style="font-size:84px;line-height:90px">dias até o primeiro insight.</h2>'
+    return (box(72, 260, 936, 0, f'<p class="d" style="font-size:300px;line-height:280px;letter-spacing:-0.05em">14</p><h2 style="font-size:84px;line-height:90px">dias até o primeiro insight.</h2>'
                 f'<p style="margin-top:30px;font-size:36px;line-height:48px;color:#1F3A12">Quem faz é a 4metrics. Você só decide.</p><div style="margin-top:44px">{cta_btn(t)}</div>'))
 C3 = [("escuro", c3_1, ("px-8134173.jpg", 900, "center 35%"), False, None), ("claro", c3_2, None, True, None), ("nevoa", c3_3, None, False, None),
       ("escuro", c3_4, None, True, (560, 400, 700)), ("lima", c3_5, None, True, None)]
