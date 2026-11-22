@@ -6,6 +6,7 @@ G, MUTL, MUTD, NEV = "#406500", "#4F5B63", "#9AA7B0", "#EAF5DD"
 DOTL = "radial-gradient(rgba(5,19,28,.07) 1px,transparent 1.2px) 0 0/22px 22px"
 DOTD = "radial-gradient(rgba(255,255,255,.08) 1px,transparent 1.2px) 0 0/22px 22px"
 BG = {
+ "photo": f"{DOTD},linear-gradient(180deg,rgba(5,19,28,.18) 0%,rgba(5,19,28,.58) 38%,rgba(5,19,28,.93) 100%),radial-gradient(900px 700px at 90% 0%,rgba(146,197,73,.35),transparent 60%),url(file:///home/claude/out/stock/full/3184418.jpg) center/cover no-repeat",
  "mesh": f"{DOTD},radial-gradient(900px 900px at 85% 10%,rgba(146,197,73,.55),transparent 60%),radial-gradient(800px 800px at 0% 100%,rgba(146,197,73,.30),transparent 60%),linear-gradient(160deg,#0B2230 0%,{NAVY} 55%)",
  "nevoa": f"{DOTL},linear-gradient(180deg,#FFFFFF 0%,{NEV} 100%)",
  "sweep": f"{DOTL},radial-gradient(1100px 700px at 100% 0%,rgba(146,197,73,.45),transparent 65%),#FFFFFF",
@@ -33,7 +34,7 @@ def step(n, on_ink, off, cur, dark):
 
 S = []
 # 1 abertura · mesh
-S.append(st(1,"mesh","#fff",f'''<span class="pill" style="background:rgba(146,197,73,.18);color:{LIME};border:1px solid rgba(146,197,73,.5)">Como funciona</span>
+S.append(st(1,"photo","#fff",f'''<span class="pill" style="background:rgba(146,197,73,.18);color:{LIME};border:1px solid rgba(146,197,73,.5)">Como funciona</span>
 <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:48px">
 <h1 style="font-size:132px;line-height:134px">Como funciona a <span style="color:{LIME}">4metrics?</span></h1>
 <p style="color:#C9D3D9">Do dado espalhado à resposta pronta. Em até 14&nbsp;dias.</p>
@@ -103,11 +104,11 @@ with sync_playwright() as p:
     pg = b.new_page(viewport={"width":1080,"height":1920})
     pg.goto(f"file://{D}/st.html"); pg.evaluate("document.fonts.ready"); pg.wait_for_timeout(900)
     print(pg.evaluate("""()=>[...document.querySelectorAll('section')].map(s=>{const r=s.getBoundingClientRect();return s.id+':'+[...s.querySelectorAll('*')].filter(e=>{const q=e.getBoundingClientRect();return q.width&&(q.right>r.right+1||q.bottom>r.bottom-150||q.left<r.left-1)&&!e.closest('.foot')&&e.tagName!='circle'&&e.tagName!='path'}).length})"""))
-    for i in range(0,8): pg.locator(f"#st{i}").screenshot(path=f"{D}/2026-11-23-como-funciona-v3-{i:02d}.png")
+    for i in range(0,8): pg.locator(f"#st{i}").screenshot(path=f"{D}/2026-11-23-como-funciona-v4-{i:02d}.png")
     b.close()
 from PIL import Image
 sh=Image.new('RGB',(8*370+10,660),'#888')
 for k in range(1,9):
     i = k % 8
-    sh.paste(Image.open(f"{D}/2026-11-23-como-funciona-v3-{i:02d}.png").convert('RGB').resize((360,640),Image.LANCZOS),(10+(k-1)*370,10))
+    sh.paste(Image.open(f"{D}/2026-11-23-como-funciona-v4-{i:02d}.png").convert('RGB').resize((360,640),Image.LANCZOS),(10+(k-1)*370,10))
 sh.save(f"{D}/visao-geral-como-funciona.png")
