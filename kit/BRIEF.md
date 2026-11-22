@@ -66,6 +66,7 @@ Varie os layouts ao longo das semanas. Não use o mesmo layout em dois carrossé
   8. Post-texto (card branco).
   9. Foto em tela cheia com gradiente sobre toda a imagem.
   10. Calendário, gráfico de barras ou dado visual da marca.
+- Fotos (pedido do Gabriel em 22/11/2026): meio termo entre foto e ilustração. Toda capa de feed e o 1º story de cada sequência levam foto de banco de imagem (Pexels). A foto pode ir em tela cheia com gradiente navy por cima de toda a imagem, ou recortada em card, círculo ou arco com borda verde. Os outros slides usam as ilustrações da marca. Não repetir a mesma foto. Referência: kit/tools/pauta_site.py (phbg, phcard).
 - Referência: kit/tools/stories_como_funciona.py (stories "Como funciona", 23/11/2026).
 
 ## Fatos do site 4metrics.com.br (lido em 22/11/2026, projeto Lovable "site-4metrics")
