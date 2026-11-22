@@ -1,0 +1,550 @@
+data,canal,categoria,pedidos,receita
+2026-09-01,Loja online,Calçados,42,7941.84
+2026-09-01,Loja online,Bolsas,21,3832.07
+2026-09-01,Loja online,Acessórios,19,1677.58
+2026-09-01,Marketplace,Calçados,39,7347.33
+2026-09-01,Marketplace,Bolsas,19,3552.83
+2026-09-01,Marketplace,Acessórios,18,1646.69
+2026-09-01,Lojas físicas,Calçados,41,7865.52
+2026-09-01,Lojas físicas,Bolsas,27,5102.74
+2026-09-01,Lojas físicas,Acessórios,20,1520.98
+2026-09-02,Loja online,Calçados,38,6887.67
+2026-09-02,Loja online,Bolsas,22,4061.92
+2026-09-02,Loja online,Acessórios,23,1951.83
+2026-09-02,Marketplace,Calçados,36,6773.52
+2026-09-02,Marketplace,Bolsas,16,3179.84
+2026-09-02,Marketplace,Acessórios,18,1792.37
+2026-09-02,Lojas físicas,Calçados,48,8596.03
+2026-09-02,Lojas físicas,Bolsas,25,4603.72
+2026-09-02,Lojas físicas,Acessórios,28,2575.65
+2026-09-03,Loja online,Calçados,41,7271.13
+2026-09-03,Loja online,Bolsas,20,3895.35
+2026-09-03,Loja online,Acessórios,19,1747.2
+2026-09-03,Marketplace,Calçados,36,6230.95
+2026-09-03,Marketplace,Bolsas,17,3322.65
+2026-09-03,Marketplace,Acessórios,13,1136.55
+2026-09-03,Lojas físicas,Calçados,51,9101.56
+2026-09-03,Lojas físicas,Bolsas,27,4981.55
+2026-09-03,Lojas físicas,Acessórios,21,2029.08
+2026-09-04,Loja online,Calçados,46,8858.07
+2026-09-04,Loja online,Bolsas,25,4697.45
+2026-09-04,Loja online,Acessórios,22,1751.35
+2026-09-04,Marketplace,Calçados,37,6663.92
+2026-09-04,Marketplace,Bolsas,16,2798.11
+2026-09-04,Marketplace,Acessórios,15,1286.27
+2026-09-04,Lojas físicas,Calçados,60,10124.74
+2026-09-04,Lojas físicas,Bolsas,21,3925.21
+2026-09-04,Lojas físicas,Acessórios,30,2838.84
+2026-09-05,Loja online,Calçados,33,5440.19
+2026-09-05,Loja online,Bolsas,22,3940.42
+2026-09-05,Loja online,Acessórios,18,1760.74
+2026-09-05,Marketplace,Calçados,39,7264.06
+2026-09-05,Marketplace,Bolsas,17,3204.07
+2026-09-05,Marketplace,Acessórios,20,1899.04
+2026-09-05,Lojas físicas,Calçados,55,10416.0
+2026-09-05,Lojas físicas,Bolsas,21,4100.33
+2026-09-05,Lojas físicas,Acessórios,29,2732.87
+2026-09-06,Loja online,Calçados,33,5937.71
+2026-09-06,Loja online,Bolsas,23,3921.74
+2026-09-06,Loja online,Acessórios,21,2061.28
+2026-09-06,Marketplace,Calçados,29,5738.54
+2026-09-06,Marketplace,Bolsas,18,3308.38
+2026-09-06,Marketplace,Acessórios,18,1713.58
+2026-09-06,Lojas físicas,Calçados,52,10096.59
+2026-09-06,Lojas físicas,Bolsas,24,4360.37
+2026-09-06,Lojas físicas,Acessórios,29,2616.22
+2026-09-07,Loja online,Calçados,38,7317.72
+2026-09-07,Loja online,Bolsas,25,4536.03
+2026-09-07,Loja online,Acessórios,18,1600.6
+2026-09-07,Marketplace,Calçados,34,6208.94
+2026-09-07,Marketplace,Bolsas,20,3535.69
+2026-09-07,Marketplace,Acessórios,20,1597.07
+2026-09-07,Lojas físicas,Calçados,47,8932.45
+2026-09-07,Lojas físicas,Bolsas,29,5564.29
+2026-09-07,Lojas físicas,Acessórios,27,2460.75
+2026-09-08,Loja online,Calçados,44,8342.5
+2026-09-08,Loja online,Bolsas,21,3931.61
+2026-09-08,Loja online,Acessórios,23,2070.15
+2026-09-08,Marketplace,Calçados,37,7012.5
+2026-09-08,Marketplace,Bolsas,21,3939.59
+2026-09-08,Marketplace,Acessórios,16,1392.31
+2026-09-08,Lojas físicas,Calçados,52,10004.29
+2026-09-08,Lojas físicas,Bolsas,25,4702.17
+2026-09-08,Lojas físicas,Acessórios,31,2153.96
+2026-09-09,Loja online,Calçados,37,6917.19
+2026-09-09,Loja online,Bolsas,22,4111.99
+2026-09-09,Loja online,Acessórios,20,1904.82
+2026-09-09,Marketplace,Calçados,35,6328.83
+2026-09-09,Marketplace,Bolsas,22,4132.5
+2026-09-09,Marketplace,Acessórios,16,1427.27
+2026-09-09,Lojas físicas,Calçados,50,9224.9
+2026-09-09,Lojas físicas,Bolsas,17,3078.78
+2026-09-09,Lojas físicas,Acessórios,29,2338.89
+2026-09-10,Loja online,Calçados,43,8283.01
+2026-09-10,Loja online,Bolsas,23,4529.35
+2026-09-10,Loja online,Acessórios,17,1481.94
+2026-09-10,Marketplace,Calçados,33,6269.55
+2026-09-10,Marketplace,Bolsas,19,3107.21
+2026-09-10,Marketplace,Acessórios,19,1489.97
+2026-09-10,Lojas físicas,Calçados,56,9691.52
+2026-09-10,Lojas físicas,Bolsas,26,5058.49
+2026-09-10,Lojas físicas,Acessórios,25,2288.22
+2026-09-11,Loja online,Calçados,47,8748.16
+2026-09-11,Loja online,Bolsas,21,4142.59
+2026-09-11,Loja online,Acessórios,24,2103.59
+2026-09-11,Marketplace,Calçados,46,8087.96
+2026-09-11,Marketplace,Bolsas,19,3474.61
+2026-09-11,Marketplace,Acessórios,17,1625.88
+2026-09-11,Lojas físicas,Calçados,53,10075.79
+2026-09-11,Lojas físicas,Bolsas,21,3631.4
+2026-09-11,Lojas físicas,Acessórios,28,2304.25
+2026-09-12,Loja online,Calçados,38,6583.08
+2026-09-12,Loja online,Bolsas,25,4774.31
+2026-09-12,Loja online,Acessórios,25,2062.45
+2026-09-12,Marketplace,Calçados,34,5979.84
+2026-09-12,Marketplace,Bolsas,18,3558.88
+2026-09-12,Marketplace,Acessórios,15,1537.24
+2026-09-12,Lojas físicas,Calçados,58,10647.48
+2026-09-12,Lojas físicas,Bolsas,19,3728.81
+2026-09-12,Lojas físicas,Acessórios,25,2129.43
+2026-09-13,Loja online,Calçados,45,8472.59
+2026-09-13,Loja online,Bolsas,25,4420.97
+2026-09-13,Loja online,Acessórios,24,2445.57
+2026-09-13,Marketplace,Calçados,40,7342.2
+2026-09-13,Marketplace,Bolsas,15,2897.23
+2026-09-13,Marketplace,Acessórios,17,1546.89
+2026-09-13,Lojas físicas,Calçados,61,11156.44
+2026-09-13,Lojas físicas,Bolsas,18,3274.24
+2026-09-13,Lojas físicas,Acessórios,20,1931.01
+2026-09-14,Loja online,Calçados,45,8104.97
+2026-09-14,Loja online,Bolsas,21,4024.88
+2026-09-14,Loja online,Acessórios,21,2112.86
+2026-09-14,Marketplace,Calçados,34,6572.97
+2026-09-14,Marketplace,Bolsas,20,3957.58
+2026-09-14,Marketplace,Acessórios,15,1455.59
+2026-09-14,Lojas físicas,Calçados,40,7053.33
+2026-09-14,Lojas físicas,Bolsas,19,3677.49
+2026-09-14,Lojas físicas,Acessórios,22,1977.75
+2026-09-15,Loja online,Calçados,42,7760.39
+2026-09-15,Loja online,Bolsas,20,3737.39
+2026-09-15,Loja online,Acessórios,26,2349.21
+2026-09-15,Marketplace,Calçados,36,6948.15
+2026-09-15,Marketplace,Bolsas,16,2798.76
+2026-09-15,Marketplace,Acessórios,16,1577.42
+2026-09-15,Lojas físicas,Calçados,41,7388.91
+2026-09-15,Lojas físicas,Bolsas,29,5548.91
+2026-09-15,Lojas físicas,Acessórios,26,2507.49
+2026-09-16,Loja online,Calçados,44,7725.02
+2026-09-16,Loja online,Bolsas,17,3058.1
+2026-09-16,Loja online,Acessórios,24,2051.42
+2026-09-16,Marketplace,Calçados,31,5543.8
+2026-09-16,Marketplace,Bolsas,14,2576.87
+2026-09-16,Marketplace,Acessórios,14,1300.78
+2026-09-16,Lojas físicas,Calçados,37,6942.02
+2026-09-16,Lojas físicas,Bolsas,24,4067.11
+2026-09-16,Lojas físicas,Acessórios,28,2458.29
+2026-09-17,Loja online,Calçados,31,5517.98
+2026-09-17,Loja online,Bolsas,22,3989.29
+2026-09-17,Loja online,Acessórios,23,2207.55
+2026-09-17,Marketplace,Calçados,37,6941.68
+2026-09-17,Marketplace,Bolsas,20,3805.57
+2026-09-17,Marketplace,Acessórios,18,1319.91
+2026-09-17,Lojas físicas,Calçados,57,11142.1
+2026-09-17,Lojas físicas,Bolsas,25,4531.1
+2026-09-17,Lojas físicas,Acessórios,32,2429.92
+2026-09-18,Loja online,Calçados,45,9197.54
+2026-09-18,Loja online,Bolsas,19,3619.82
+2026-09-18,Loja online,Acessórios,26,2315.0
+2026-09-18,Marketplace,Calçados,37,7112.16
+2026-09-18,Marketplace,Bolsas,15,2764.31
+2026-09-18,Marketplace,Acessórios,18,1738.86
+2026-09-18,Lojas físicas,Calçados,51,9355.3
+2026-09-18,Lojas físicas,Bolsas,22,4006.82
+2026-09-18,Lojas físicas,Acessórios,28,2542.79
+2026-09-19,Loja online,Calçados,39,6952.42
+2026-09-19,Loja online,Bolsas,28,5435.34
+2026-09-19,Loja online,Acessórios,23,1592.9
+2026-09-19,Marketplace,Calçados,37,6987.29
+2026-09-19,Marketplace,Bolsas,20,3768.44
+2026-09-19,Marketplace,Acessórios,17,1601.05
+2026-09-19,Lojas físicas,Calçados,40,7730.64
+2026-09-19,Lojas físicas,Bolsas,27,4843.35
+2026-09-19,Lojas físicas,Acessórios,30,3134.24
+2026-09-20,Loja online,Calçados,36,6468.1
+2026-09-20,Loja online,Bolsas,22,4102.29
+2026-09-20,Loja online,Acessórios,20,1644.13
+2026-09-20,Marketplace,Calçados,43,8311.86
+2026-09-20,Marketplace,Bolsas,14,2439.36
+2026-09-20,Marketplace,Acessórios,20,1958.26
+2026-09-20,Lojas físicas,Calçados,63,12063.31
+2026-09-20,Lojas físicas,Bolsas,23,4302.96
+2026-09-20,Lojas físicas,Acessórios,19,1596.29
+2026-09-21,Loja online,Calçados,43,8134.83
+2026-09-21,Loja online,Bolsas,19,3496.12
+2026-09-21,Loja online,Acessórios,22,2046.3
+2026-09-21,Marketplace,Calçados,37,6906.86
+2026-09-21,Marketplace,Bolsas,16,3061.01
+2026-09-21,Marketplace,Acessórios,17,1417.65
+2026-09-21,Lojas físicas,Calçados,48,8879.87
+2026-09-21,Lojas físicas,Bolsas,25,4656.4
+2026-09-21,Lojas físicas,Acessórios,26,2376.58
+2026-09-22,Loja online,Calçados,42,7347.17
+2026-09-22,Loja online,Bolsas,22,4255.45
+2026-09-22,Loja online,Acessórios,22,1946.69
+2026-09-22,Marketplace,Calçados,36,6381.88
+2026-09-22,Marketplace,Bolsas,13,2411.2
+2026-09-22,Marketplace,Acessórios,15,1438.78
+2026-09-22,Lojas físicas,Calçados,45,7378.74
+2026-09-22,Lojas físicas,Bolsas,22,4347.75
+2026-09-22,Lojas físicas,Acessórios,24,1897.07
+2026-09-23,Loja online,Calçados,39,7377.52
+2026-09-23,Loja online,Bolsas,23,4287.52
+2026-09-23,Loja online,Acessórios,25,2391.3
+2026-09-23,Marketplace,Calçados,34,6452.29
+2026-09-23,Marketplace,Bolsas,20,3855.41
+2026-09-23,Marketplace,Acessórios,19,1545.41
+2026-09-23,Lojas físicas,Calçados,51,9732.78
+2026-09-23,Lojas físicas,Bolsas,25,4838.77
+2026-09-23,Lojas físicas,Acessórios,27,2626.18
+2026-09-24,Loja online,Calçados,42,8625.58
+2026-09-24,Loja online,Bolsas,24,4398.64
+2026-09-24,Loja online,Acessórios,21,2325.99
+2026-09-24,Marketplace,Calçados,33,6335.77
+2026-09-24,Marketplace,Bolsas,19,3516.0
+2026-09-24,Marketplace,Acessórios,14,1281.0
+2026-09-24,Lojas físicas,Calçados,54,10478.02
+2026-09-24,Lojas físicas,Bolsas,28,5185.46
+2026-09-24,Lojas físicas,Acessórios,28,2640.92
+2026-09-25,Loja online,Calçados,44,8159.43
+2026-09-25,Loja online,Bolsas,21,4000.27
+2026-09-25,Loja online,Acessórios,18,1529.47
+2026-09-25,Marketplace,Calçados,34,5891.8
+2026-09-25,Marketplace,Bolsas,16,2702.87
+2026-09-25,Marketplace,Acessórios,15,1418.21
+2026-09-25,Lojas físicas,Calçados,55,10151.01
+2026-09-25,Lojas físicas,Bolsas,25,4341.64
+2026-09-25,Lojas físicas,Acessórios,31,2917.96
+2026-09-26,Loja online,Calçados,49,8719.13
+2026-09-26,Loja online,Bolsas,21,3579.32
+2026-09-26,Loja online,Acessórios,23,2242.07
+2026-09-26,Marketplace,Calçados,26,4799.16
+2026-09-26,Marketplace,Bolsas,18,3076.27
+2026-09-26,Marketplace,Acessórios,13,1059.23
+2026-09-26,Lojas físicas,Calçados,48,8341.3
+2026-09-26,Lojas físicas,Bolsas,26,4861.92
+2026-09-26,Lojas físicas,Acessórios,28,2677.25
+2026-09-27,Loja online,Calçados,51,9910.04
+2026-09-27,Loja online,Bolsas,18,3257.22
+2026-09-27,Loja online,Acessórios,18,1464.97
+2026-09-27,Marketplace,Calçados,34,6291.49
+2026-09-27,Marketplace,Bolsas,18,3101.48
+2026-09-27,Marketplace,Acessórios,14,1257.41
+2026-09-27,Lojas físicas,Calçados,50,9125.5
+2026-09-27,Lojas físicas,Bolsas,25,4473.05
+2026-09-27,Lojas físicas,Acessórios,28,2599.36
+2026-09-28,Loja online,Calçados,43,7723.81
+2026-09-28,Loja online,Bolsas,21,3427.77
+2026-09-28,Loja online,Acessórios,19,1715.67
+2026-09-28,Marketplace,Calçados,28,5224.69
+2026-09-28,Marketplace,Bolsas,17,2957.66
+2026-09-28,Marketplace,Acessórios,16,1399.83
+2026-09-28,Lojas físicas,Calçados,55,10444.23
+2026-09-28,Lojas físicas,Bolsas,25,4454.74
+2026-09-28,Lojas físicas,Acessórios,25,2236.91
+2026-09-29,Loja online,Calçados,47,8805.67
+2026-09-29,Loja online,Bolsas,19,3309.13
+2026-09-29,Loja online,Acessórios,20,1681.54
+2026-09-29,Marketplace,Calçados,30,5522.17
+2026-09-29,Marketplace,Bolsas,16,2973.5
+2026-09-29,Marketplace,Acessórios,18,1560.53
+2026-09-29,Lojas físicas,Calçados,66,12040.26
+2026-09-29,Lojas físicas,Bolsas,29,5393.23
+2026-09-29,Lojas físicas,Acessórios,29,2058.79
+2026-09-30,Loja online,Calçados,39,7292.08
+2026-09-30,Loja online,Bolsas,23,4684.92
+2026-09-30,Loja online,Acessórios,22,2205.25
+2026-09-30,Marketplace,Calçados,37,7125.42
+2026-09-30,Marketplace,Bolsas,18,3307.53
+2026-09-30,Marketplace,Acessórios,18,1464.75
+2026-09-30,Lojas físicas,Calçados,59,10434.88
+2026-09-30,Lojas físicas,Bolsas,26,5251.12
+2026-09-30,Lojas físicas,Acessórios,25,2253.9
+2026-10-01,Loja online,Calçados,60,11112.6
+2026-10-01,Loja online,Bolsas,23,4302.5
+2026-10-01,Loja online,Acessórios,28,2679.06
+2026-10-01,Marketplace,Calçados,31,6169.62
+2026-10-01,Marketplace,Bolsas,20,3702.92
+2026-10-01,Marketplace,Acessórios,17,1471.72
+2026-10-01,Lojas físicas,Calçados,59,10582.26
+2026-10-01,Lojas físicas,Bolsas,27,4891.39
+2026-10-01,Lojas físicas,Acessórios,23,2202.23
+2026-10-02,Loja online,Calçados,61,11280.06
+2026-10-02,Loja online,Bolsas,24,4595.8
+2026-10-02,Loja online,Acessórios,26,2404.61
+2026-10-02,Marketplace,Calçados,41,7956.17
+2026-10-02,Marketplace,Bolsas,16,3252.3
+2026-10-02,Marketplace,Acessórios,17,1636.89
+2026-10-02,Lojas físicas,Calçados,46,8493.56
+2026-10-02,Lojas físicas,Bolsas,19,3786.57
+2026-10-02,Lojas físicas,Acessórios,29,2328.05
+2026-10-03,Loja online,Calçados,43,7397.35
+2026-10-03,Loja online,Bolsas,30,5439.71
+2026-10-03,Loja online,Acessórios,26,2274.95
+2026-10-03,Marketplace,Calçados,34,5994.02
+2026-10-03,Marketplace,Bolsas,17,2949.43
+2026-10-03,Marketplace,Acessórios,17,1571.99
+2026-10-03,Lojas físicas,Calçados,53,9706.75
+2026-10-03,Lojas físicas,Bolsas,22,4098.08
+2026-10-03,Lojas físicas,Acessórios,23,2358.11
+2026-10-04,Loja online,Calçados,57,10492.47
+2026-10-04,Loja online,Bolsas,25,4484.46
+2026-10-04,Loja online,Acessórios,23,2005.06
+2026-10-04,Marketplace,Calçados,36,6808.47
+2026-10-04,Marketplace,Bolsas,18,3632.21
+2026-10-04,Marketplace,Acessórios,15,1351.55
+2026-10-04,Lojas físicas,Calçados,67,11394.25
+2026-10-04,Lojas físicas,Bolsas,23,4286.2
+2026-10-04,Lojas físicas,Acessórios,25,2331.57
+2026-10-05,Loja online,Calçados,51,9584.38
+2026-10-05,Loja online,Bolsas,26,4970.44
+2026-10-05,Loja online,Acessórios,20,1658.39
+2026-10-05,Marketplace,Calçados,34,6009.34
+2026-10-05,Marketplace,Bolsas,15,2850.33
+2026-10-05,Marketplace,Acessórios,16,1521.27
+2026-10-05,Lojas físicas,Calçados,55,10309.86
+2026-10-05,Lojas físicas,Bolsas,26,4788.24
+2026-10-05,Lojas físicas,Acessórios,21,1884.95
+2026-10-06,Loja online,Calçados,55,9942.06
+2026-10-06,Loja online,Bolsas,26,4965.84
+2026-10-06,Loja online,Acessórios,23,2187.76
+2026-10-06,Marketplace,Calçados,42,7583.67
+2026-10-06,Marketplace,Bolsas,17,3124.54
+2026-10-06,Marketplace,Acessórios,20,1850.62
+2026-10-06,Lojas físicas,Calçados,56,10050.84
+2026-10-06,Lojas físicas,Bolsas,25,4623.03
+2026-10-06,Lojas físicas,Acessórios,19,1929.0
+2026-10-07,Loja online,Calçados,58,9918.4
+2026-10-07,Loja online,Bolsas,28,5150.62
+2026-10-07,Loja online,Acessórios,27,2509.15
+2026-10-07,Marketplace,Calçados,28,5132.5
+2026-10-07,Marketplace,Bolsas,20,3608.02
+2026-10-07,Marketplace,Acessórios,15,1186.85
+2026-10-07,Lojas físicas,Calçados,43,8070.41
+2026-10-07,Lojas físicas,Bolsas,30,5653.07
+2026-10-07,Lojas físicas,Acessórios,26,2804.6
+2026-10-08,Loja online,Calçados,49,8800.76
+2026-10-08,Loja online,Bolsas,28,5302.87
+2026-10-08,Loja online,Acessórios,23,1854.72
+2026-10-08,Marketplace,Calçados,35,6544.27
+2026-10-08,Marketplace,Bolsas,14,2567.35
+2026-10-08,Marketplace,Acessórios,16,1498.89
+2026-10-08,Lojas físicas,Calçados,49,9031.28
+2026-10-08,Lojas físicas,Bolsas,24,4642.28
+2026-10-08,Lojas físicas,Acessórios,29,2524.86
+2026-10-09,Loja online,Calçados,58,10378.47
+2026-10-09,Loja online,Bolsas,26,4965.98
+2026-10-09,Loja online,Acessórios,31,2695.12
+2026-10-09,Marketplace,Calçados,34,6343.42
+2026-10-09,Marketplace,Bolsas,14,2591.78
+2026-10-09,Marketplace,Acessórios,15,1394.58
+2026-10-09,Lojas físicas,Calçados,43,7274.96
+2026-10-09,Lojas físicas,Bolsas,25,4677.12
+2026-10-09,Lojas físicas,Acessórios,23,2233.55
+2026-10-10,Loja online,Calçados,51,9187.88
+2026-10-10,Loja online,Bolsas,28,4828.73
+2026-10-10,Loja online,Acessórios,24,2156.01
+2026-10-10,Marketplace,Calçados,38,6980.53
+2026-10-10,Marketplace,Bolsas,18,3235.61
+2026-10-10,Marketplace,Acessórios,18,1859.54
+2026-10-10,Lojas físicas,Calçados,46,9380.77
+2026-10-10,Lojas físicas,Bolsas,23,4258.15
+2026-10-10,Lojas físicas,Acessórios,25,2454.86
+2026-10-11,Loja online,Calçados,45,7568.8
+2026-10-11,Loja online,Bolsas,28,5358.18
+2026-10-11,Loja online,Acessórios,28,3109.23
+2026-10-11,Marketplace,Calçados,35,6546.09
+2026-10-11,Marketplace,Bolsas,19,3571.06
+2026-10-11,Marketplace,Acessórios,20,1601.88
+2026-10-11,Lojas físicas,Calçados,48,7557.23
+2026-10-11,Lojas físicas,Bolsas,27,4914.56
+2026-10-11,Lojas físicas,Acessórios,28,3002.53
+2026-10-12,Loja online,Calçados,53,9697.07
+2026-10-12,Loja online,Bolsas,24,4279.13
+2026-10-12,Loja online,Acessórios,24,2282.74
+2026-10-12,Marketplace,Calçados,15,2782.95
+2026-10-12,Marketplace,Bolsas,17,3269.35
+2026-10-12,Marketplace,Acessórios,18,1599.58
+2026-10-12,Lojas físicas,Calçados,54,9924.43
+2026-10-12,Lojas físicas,Bolsas,21,4129.49
+2026-10-12,Lojas físicas,Acessórios,26,2140.89
+2026-10-13,Loja online,Calçados,59,11077.83
+2026-10-13,Loja online,Bolsas,21,4155.47
+2026-10-13,Loja online,Acessórios,27,2622.55
+2026-10-13,Marketplace,Calçados,16,2940.86
+2026-10-13,Marketplace,Bolsas,14,2698.82
+2026-10-13,Marketplace,Acessórios,17,1491.03
+2026-10-13,Lojas físicas,Calçados,52,9652.49
+2026-10-13,Lojas físicas,Bolsas,27,4914.86
+2026-10-13,Lojas físicas,Acessórios,25,1822.21
+2026-10-14,Loja online,Calçados,50,9520.29
+2026-10-14,Loja online,Bolsas,30,5462.65
+2026-10-14,Loja online,Acessórios,26,2669.36
+2026-10-14,Marketplace,Calçados,15,2863.08
+2026-10-14,Marketplace,Bolsas,20,3706.36
+2026-10-14,Marketplace,Acessórios,19,1602.01
+2026-10-14,Lojas físicas,Calçados,51,9403.44
+2026-10-14,Lojas físicas,Bolsas,25,4850.94
+2026-10-14,Lojas físicas,Acessórios,32,2709.64
+2026-10-15,Loja online,Calçados,49,9259.98
+2026-10-15,Loja online,Bolsas,23,4346.45
+2026-10-15,Loja online,Acessórios,28,2457.84
+2026-10-15,Marketplace,Calçados,16,2761.69
+2026-10-15,Marketplace,Bolsas,18,3107.54
+2026-10-15,Marketplace,Acessórios,15,1283.26
+2026-10-15,Lojas físicas,Calçados,48,9209.77
+2026-10-15,Lojas físicas,Bolsas,25,4545.51
+2026-10-15,Lojas físicas,Acessórios,26,2668.91
+2026-10-16,Loja online,Calçados,53,9960.1
+2026-10-16,Loja online,Bolsas,30,5614.28
+2026-10-16,Loja online,Acessórios,22,2418.29
+2026-10-16,Marketplace,Calçados,19,3213.3
+2026-10-16,Marketplace,Bolsas,17,3201.75
+2026-10-16,Marketplace,Acessórios,19,1811.69
+2026-10-16,Lojas físicas,Calçados,48,8475.33
+2026-10-16,Lojas físicas,Bolsas,25,4831.69
+2026-10-16,Lojas físicas,Acessórios,21,1717.43
+2026-10-17,Loja online,Calçados,52,8814.01
+2026-10-17,Loja online,Bolsas,25,4537.69
+2026-10-17,Loja online,Acessórios,27,2278.42
+2026-10-17,Marketplace,Calçados,13,2364.0
+2026-10-17,Marketplace,Bolsas,17,3054.61
+2026-10-17,Marketplace,Acessórios,17,1632.03
+2026-10-17,Lojas físicas,Calçados,57,11322.44
+2026-10-17,Lojas físicas,Bolsas,22,3996.12
+2026-10-17,Lojas físicas,Acessórios,17,1788.31
+2026-10-18,Loja online,Calçados,48,8867.18
+2026-10-18,Loja online,Bolsas,28,4875.68
+2026-10-18,Loja online,Acessórios,27,2424.3
+2026-10-18,Marketplace,Calçados,12,2248.03
+2026-10-18,Marketplace,Bolsas,19,3231.09
+2026-10-18,Marketplace,Acessórios,19,1741.8
+2026-10-18,Lojas físicas,Calçados,53,9992.2
+2026-10-18,Lojas físicas,Bolsas,29,5313.11
+2026-10-18,Lojas físicas,Acessórios,27,2341.46
+2026-10-19,Loja online,Calçados,57,10173.82
+2026-10-19,Loja online,Bolsas,26,5170.05
+2026-10-19,Loja online,Acessórios,27,2395.83
+2026-10-19,Marketplace,Calçados,13,2322.83
+2026-10-19,Marketplace,Bolsas,17,3272.76
+2026-10-19,Marketplace,Acessórios,18,1695.48
+2026-10-19,Lojas físicas,Calçados,50,9790.81
+2026-10-19,Lojas físicas,Bolsas,24,4334.45
+2026-10-19,Lojas físicas,Acessórios,28,2534.25
+2026-10-20,Loja online,Calçados,51,9199.95
+2026-10-20,Loja online,Bolsas,25,4749.71
+2026-10-20,Loja online,Acessórios,27,2168.72
+2026-10-20,Marketplace,Calçados,16,2982.91
+2026-10-20,Marketplace,Bolsas,15,2867.74
+2026-10-20,Marketplace,Acessórios,16,1397.06
+2026-10-20,Lojas físicas,Calçados,55,10756.11
+2026-10-20,Lojas físicas,Bolsas,23,4335.64
+2026-10-20,Lojas físicas,Acessórios,22,2387.31
+2026-10-21,Loja online,Calçados,49,9533.44
+2026-10-21,Loja online,Bolsas,24,4595.77
+2026-10-21,Loja online,Acessórios,33,2299.18
+2026-10-21,Marketplace,Calçados,14,2646.06
+2026-10-21,Marketplace,Bolsas,17,3054.09
+2026-10-21,Marketplace,Acessórios,21,1903.36
+2026-10-21,Lojas físicas,Calçados,40,7673.33
+2026-10-21,Lojas físicas,Bolsas,20,3884.14
+2026-10-21,Lojas físicas,Acessórios,23,2096.65
+2026-10-22,Loja online,Calçados,61,11342.52
+2026-10-22,Loja online,Bolsas,22,3771.51
+2026-10-22,Loja online,Acessórios,30,2877.7
+2026-10-22,Marketplace,Calçados,14,2686.27
+2026-10-22,Marketplace,Bolsas,18,3423.27
+2026-10-22,Marketplace,Acessórios,12,1051.0
+2026-10-22,Lojas físicas,Calçados,56,10688.59
+2026-10-22,Lojas físicas,Bolsas,27,4464.23
+2026-10-22,Lojas físicas,Acessórios,25,2348.44
+2026-10-23,Loja online,Calçados,69,12238.53
+2026-10-23,Loja online,Bolsas,25,4632.17
+2026-10-23,Loja online,Acessórios,29,2507.15
+2026-10-23,Marketplace,Calçados,17,3037.84
+2026-10-23,Marketplace,Bolsas,17,3073.27
+2026-10-23,Marketplace,Acessórios,17,1436.05
+2026-10-23,Lojas físicas,Calçados,40,7749.79
+2026-10-23,Lojas físicas,Bolsas,26,4693.8
+2026-10-23,Lojas físicas,Acessórios,25,2448.03
+2026-10-24,Loja online,Calçados,46,8469.39
+2026-10-24,Loja online,Bolsas,28,5297.86
+2026-10-24,Loja online,Acessórios,25,1828.6
+2026-10-24,Marketplace,Calçados,17,3189.65
+2026-10-24,Marketplace,Bolsas,17,3107.12
+2026-10-24,Marketplace,Acessórios,17,1472.12
+2026-10-24,Lojas físicas,Calçados,44,7879.6
+2026-10-24,Lojas físicas,Bolsas,23,4142.33
+2026-10-24,Lojas físicas,Acessórios,21,1996.9
+2026-10-25,Loja online,Calçados,44,8372.22
+2026-10-25,Loja online,Bolsas,23,4319.85
+2026-10-25,Loja online,Acessórios,30,2748.79
+2026-10-25,Marketplace,Calçados,14,2595.41
+2026-10-25,Marketplace,Bolsas,17,2909.2
+2026-10-25,Marketplace,Acessórios,16,1460.87
+2026-10-25,Lojas físicas,Calçados,47,8724.97
+2026-10-25,Lojas físicas,Bolsas,27,5160.58
+2026-10-25,Lojas físicas,Acessórios,28,2651.83
+2026-10-26,Loja online,Calçados,51,9427.49
+2026-10-26,Loja online,Bolsas,25,4562.35
+2026-10-26,Loja online,Acessórios,25,1905.06
+2026-10-26,Marketplace,Calçados,15,2772.11
+2026-10-26,Marketplace,Bolsas,15,2772.12
+2026-10-26,Marketplace,Acessórios,18,1596.33
+2026-10-26,Lojas físicas,Calçados,63,10341.35
+2026-10-26,Lojas físicas,Bolsas,24,4089.52
+2026-10-26,Lojas físicas,Acessórios,28,3114.53
+2026-10-27,Loja online,Calçados,37,6882.86
+2026-10-27,Loja online,Bolsas,28,5112.26
+2026-10-27,Loja online,Acessórios,28,2017.57
+2026-10-27,Marketplace,Calçados,17,3195.59
+2026-10-27,Marketplace,Bolsas,17,3065.09
+2026-10-27,Marketplace,Acessórios,18,1550.1
+2026-10-27,Lojas físicas,Calçados,51,9226.89
+2026-10-27,Lojas físicas,Bolsas,18,3325.49
+2026-10-27,Lojas físicas,Acessórios,25,2400.88
+2026-10-28,Loja online,Calçados,47,8682.56
+2026-10-28,Loja online,Bolsas,28,5212.58
+2026-10-28,Loja online,Acessórios,30,3178.0
+2026-10-28,Marketplace,Calçados,13,2205.23
+2026-10-28,Marketplace,Bolsas,19,3747.48
+2026-10-28,Marketplace,Acessórios,19,1833.72
+2026-10-28,Lojas físicas,Calçados,46,8247.41
+2026-10-28,Lojas físicas,Bolsas,28,4975.81
+2026-10-28,Lojas físicas,Acessórios,19,1558.37
+2026-10-29,Loja online,Calçados,68,13626.33
+2026-10-29,Loja online,Bolsas,24,4300.04
+2026-10-29,Loja online,Acessórios,27,2268.14
+2026-10-29,Marketplace,Calçados,18,3318.72
+2026-10-29,Marketplace,Bolsas,15,2932.07
+2026-10-29,Marketplace,Acessórios,16,1468.32
+2026-10-29,Lojas físicas,Calçados,50,9124.25
+2026-10-29,Lojas físicas,Bolsas,26,4665.96
+2026-10-29,Lojas físicas,Acessórios,19,1374.39
+2026-10-30,Loja online,Calçados,44,7873.03
+2026-10-30,Loja online,Bolsas,26,4821.5
+2026-10-30,Loja online,Acessórios,28,2546.85
+2026-10-30,Marketplace,Calçados,14,2510.6
+2026-10-30,Marketplace,Bolsas,12,2203.76
+2026-10-30,Marketplace,Acessórios,18,1696.27
+2026-10-30,Lojas físicas,Calçados,49,8996.72
+2026-10-30,Lojas físicas,Bolsas,28,5183.45
+2026-10-30,Lojas físicas,Acessórios,27,2555.82
+2026-10-31,Loja online,Calçados,54,10554.37
+2026-10-31,Loja online,Bolsas,24,4371.1
+2026-10-31,Loja online,Acessórios,23,1923.32
+2026-10-31,Marketplace,Calçados,18,3583.34
+2026-10-31,Marketplace,Bolsas,17,3222.28
+2026-10-31,Marketplace,Acessórios,19,1832.73
+2026-10-31,Lojas físicas,Calçados,57,9969.09
+2026-10-31,Lojas físicas,Bolsas,23,4338.29
+2026-10-31,Lojas físicas,Acessórios,29,2634.09
