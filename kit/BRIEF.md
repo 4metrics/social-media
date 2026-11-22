@@ -67,3 +67,16 @@ Varie os layouts ao longo das semanas. Não use o mesmo layout em dois carrossé
   9. Foto em tela cheia com gradiente sobre toda a imagem.
   10. Calendário, gráfico de barras ou dado visual da marca.
 - Referência: kit/tools/stories_como_funciona.py (stories "Como funciona", 23/11/2026).
+
+## Fatos do site 4metrics.com.br (lido em 22/11/2026, projeto Lovable "site-4metrics")
+- Posicionamento: "Revenue Intelligence para times e agentes de IA". Hero: "Dashboard nunca foi a etapa final. Sua empresa precisa de respostas." Faixa: "Sem montar time de dados · Sem trocar suas ferramentas · Primeiro insight em até 14 dias · LGPD".
+- Prazo: "Primeiro insight em até 14 dias" (nunca 30). O site NÃO divide os 14 dias por etapa: use "Etapa 1/2/3" ou "até 14 dias" sobre o F.I.A., não "Semana 1/2".
+- F.I.A. no site: Fundação "Conectamos CRM, ERP, mídias e planilhas. Criamos as métricas oficiais da empresa." · Inteligência "A IA lê os números oficiais todo dia e mostra gargalos e oportunidades de receita, com o próximo passo." · Agentes "A decisão entra na rotina: resposta para o time, alertas e o próximo passo para os agentes que executam."
+- Diagnóstico gratuito: 30 minutos, sem custo e sem compromisso. Inclui: mapa das fontes e de onde o número diverge; decisões que mais pesam na receita e quanto tempo cada resposta leva; prontidão para IA e agentes com segurança; proposta com escopo e prazo. Resposta em 1 dia útil.
+- Temas do site: era da IA ("pergunta é o novo relatório"), custo da demora (empresas sem time de dados x com time de dados virando fila), métricas oficiais ("Acabou a briga pelo número certo", regra por métrica, verificada, com versão), riscos da IA genérica, antes e depois ("E quando a regra muda?", CAC R$ 61 x R$ 48), contexto do negócio + contexto dos dados + camada semântica, agentes que executam com aprovação, "você não precisa de um time de dados", comparativo consultoria de BI x plataforma de dados x 4metrics, para quem é (6 perfis), company brain, MCP único, demo de 3 minutos, segurança.
+- Dados com fonte no site: 67% das organizações não confiam totalmente nos dados (Precisely e Drexel University, 2025 Outlook: Data Integrity Trends and Insights); 60% dos projetos de IA sem dados prontos serão abandonados (Gartner).
+- Parceiros oficiais: Google Cloud · Gemini Enterprise · Claude Partner Network.
+- Segurança: LGPD · Criptografia · Acesso auditável · Verificação em duas etapas · DPA disponível. Agentes executam "com a sua aprovação".
+- Integrações citadas: Google Analytics, Google Ads, Google Sheets, Meta Ads, HubSpot, RD Station, Salesforce, Bling, Omie, Mercado Livre, Kommo, Blip, +50. Entrega: WhatsApp, e-mail, Slack, Teams, MCP (ChatGPT, Claude, Gemini, Copilot).
+- Depoimentos no site (usar só com OK do Gabriel): Willian Dill (Filtrec), Mariele Borges (Faber-Castell Brasil), Marlon Silva (Audi Top Car).
+- Não usar números das páginas antigas (4,2x ROI, payback 1 mês, 80%, 23%).
