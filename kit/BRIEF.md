@@ -74,6 +74,13 @@ Varie os layouts ao longo das semanas. Não use o mesmo layout em dois carrossé
 - Fotos (pedido do Gabriel em 22/11/2026): meio termo entre foto e ilustração. Toda capa de feed e o 1º story de cada sequência levam foto de banco de imagem (Pexels). A foto pode ir em tela cheia com gradiente navy por cima de toda a imagem, ou recortada em card, círculo ou arco com borda verde. Os outros slides usam as ilustrações da marca. Não repetir a mesma foto. Referência: kit/tools/pauta_site.py (phbg, phcard).
 - Referência: kit/tools/stories_como_funciona.py (stories "Como funciona", 23/11/2026).
 
+## Série "Como fazer" (pedido do Gabriel em 22/11/2026)
+- Referência: o guia prático da Nekt (guia.nekt.com, artigos "Como..."), adaptado para nós. Não copiar texto nem visual deles.
+- Tom: direto e técnico, focado em resultado. Fale em contexto para a IA, sempre com a nossa linguagem: respostas, métricas oficiais, parceria.
+- Estrutura do carrossel (6 telas): capa "Como..." com selo "Como fazer" → por que importa → passo a passo (Passo 1/2 ou F.I.A.) → "Onde costuma travar" → como a 4metrics faz → CTA.
+- Ferramenta: kit/tools/serie_como.py. Episódios 1–4: CAC (22/01), campanha que vira venda (26/01), CRM + ERP (29/01), dados prontos para IA (02/02).
+- Próximos temas possíveis: ticket médio por canal, funil parado, meta x realizado, recompra/cohort, integração com cada ferramenta (Bling, Omie, RD Station, HubSpot, Kommo).
+
 ## Fatos do site 4metrics.com.br (lido em 22/11/2026, projeto Lovable "site-4metrics")
 - Posicionamento: "Revenue Intelligence para times e agentes de IA". Hero: "Dashboard nunca foi a etapa final. Sua empresa precisa de respostas." Faixa: "Sem montar time de dados · Sem trocar suas ferramentas · Primeiro insight em até 14 dias · LGPD".
 - Prazo: "Primeiro insight em até 14 dias" (nunca 30). O site NÃO divide os 14 dias por etapa: use "Etapa 1/2/3" ou "até 14 dias" sobre o F.I.A., não "Semana 1/2".
