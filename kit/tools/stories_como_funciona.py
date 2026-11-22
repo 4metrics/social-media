@@ -36,7 +36,7 @@ S = []
 S.append(st(1,"mesh","#fff",f'''<span class="pill" style="background:rgba(146,197,73,.18);color:{LIME};border:1px solid rgba(146,197,73,.5)">Como funciona</span>
 <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:48px">
 <h1 style="font-size:132px;line-height:134px">Como funciona a <span style="color:{LIME}">4metrics?</span></h1>
-<p style="color:#C9D3D9">Do dado espalhado à resposta pronta. Em 30 dias.</p>
+<p style="color:#C9D3D9">Do dado espalhado à resposta pronta. Em 14&nbsp;dias.</p>
 <div style="display:flex;gap:16px;margin-top:20px">{"".join(f'<span class="chip" style="background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.18)">{t}</span>' for t in ("F","I","A"))}</div></div>''',logo("#fff")))
 # 2 quote · névoa
 col = lambda title, items, hl: f'''<div class="card" style="flex:1;background:{'#fff' if not hl else NAVY};color:{NAVY if not hl else '#fff'};border:1px solid {'#DCE6D3' if not hl else NAVY};{'box-shadow:0 0 40px rgba(146,197,73,.35)' if hl else ''}">
@@ -48,7 +48,7 @@ S.append(st(2,"nevoa",NAVY,f'''<span class="pill" style="background:#fff;color:{
 # 3 fundação · sweep
 srcs = ["CRM","ERP","Mídia paga","Planilhas","+50 fontes"]
 S.append(st(3,"sweep",NAVY,f'''{step(0,NAVY,"#DCE3DE",0,False)}
-<div style="font-family:'Plus Jakarta Sans';font-size:34px;font-weight:700;color:{G};margin-top:40px">SEMANAS 1 E 2</div>
+<div style="font-family:'Plus Jakarta Sans';font-size:34px;font-weight:700;color:{G};margin-top:40px">SEMANA 1</div>
 <h2>Fundação.</h2>
 <p style="color:{MUTL}">Integramos as suas fontes e escrevemos as regras do seu negócio.</p>
 <div style="flex:1;display:flex;align-items:center;justify-content:center"><div style="position:relative;width:880px;height:640px">
@@ -59,7 +59,7 @@ def badge(t,c,bg,m,a): return f'''<div class="card" style="background:#14232C;bo
 <span style="align-self:flex-start;display:inline-flex;align-items:center;gap:12px;height:50px;padding:0 20px;border-radius:999px;background:{bg};color:{c};font-size:26px;font-weight:700"><i style="width:12px;height:12px;border-radius:9px;background:{c}"></i>{t}</span>
 <span style="font-size:36px;font-weight:600;color:#fff">{m}</span><span style="font-size:30px;color:{MUTD}">→ {a}</span></div>'''
 S.append(st(4,"dark","#fff",f'''{step(1,"#fff","#2B3640",1,True)}
-<div style="font-family:'Plus Jakarta Sans';font-size:34px;font-weight:700;color:{LIME};margin-top:40px">SEMANAS 3 E 4</div>
+<div style="font-family:'Plus Jakarta Sans';font-size:34px;font-weight:700;color:{LIME};margin-top:40px">SEMANA 2</div>
 <h2>Inteligência.</h2>
 <p style="color:{MUTD}">Resumo executivo do dia: o que está crítico e o próximo passo.</p>
 <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:20px">
@@ -75,7 +75,7 @@ S.append(st(5,"lima",NAVY,f'''{step(2,NAVY,"rgba(5,19,28,.18)",2,False).replace(
 <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:20px">{ch("E-mail")}{ch("Slack")}{ch("Teams")}</div>''',logo(NAVY,"#FFFFFF")))
 # 6 30 dias · glow
 S.append(st(6,"glow","#fff",f'''<div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:20px">
-<div style="font-family:'Plus Jakarta Sans';font-size:420px;line-height:380px;font-weight:700;letter-spacing:-0.06em;color:{LIME}">30</div>
+<div style="font-family:'Plus Jakarta Sans';font-size:420px;line-height:380px;font-weight:700;letter-spacing:-0.06em;color:{LIME}">14</div>
 <div style="font-family:'Plus Jakarta Sans';font-size:64px;font-weight:700">dias para o primeiro insight.</div>
 <div style="display:flex;flex-direction:column;gap:18px;margin-top:60px">
 <span class="chip" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18)">Sem trocar de ferramenta</span>
@@ -103,11 +103,11 @@ with sync_playwright() as p:
     pg = b.new_page(viewport={"width":1080,"height":1920})
     pg.goto(f"file://{D}/st.html"); pg.evaluate("document.fonts.ready"); pg.wait_for_timeout(900)
     print(pg.evaluate("""()=>[...document.querySelectorAll('section')].map(s=>{const r=s.getBoundingClientRect();return s.id+':'+[...s.querySelectorAll('*')].filter(e=>{const q=e.getBoundingClientRect();return q.width&&(q.right>r.right+1||q.bottom>r.bottom-150||q.left<r.left-1)&&!e.closest('.foot')&&e.tagName!='circle'&&e.tagName!='path'}).length})"""))
-    for i in range(0,8): pg.locator(f"#st{i}").screenshot(path=f"{D}/2026-11-23-como-funciona-{i:02d}.png")
+    for i in range(0,8): pg.locator(f"#st{i}").screenshot(path=f"{D}/2026-11-23-como-funciona-v2-{i:02d}.png")
     b.close()
 from PIL import Image
 sh=Image.new('RGB',(8*370+10,660),'#888')
 for k in range(1,9):
     i = k % 8
-    sh.paste(Image.open(f"{D}/2026-11-23-como-funciona-{i:02d}.png").convert('RGB').resize((360,640),Image.LANCZOS),(10+(k-1)*370,10))
+    sh.paste(Image.open(f"{D}/2026-11-23-como-funciona-v2-{i:02d}.png").convert('RGB').resize((360,640),Image.LANCZOS),(10+(k-1)*370,10))
 sh.save(f"{D}/visao-geral-como-funciona.png")
