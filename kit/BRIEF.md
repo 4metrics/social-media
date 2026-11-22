@@ -10,6 +10,11 @@ Este arquivo é a fonte de verdade da rotina semanal de conteúdo. Leia tudo ant
 - Público: gestores e times comerciais e de marketing (B2B). Prefira ERP a e-commerce nos exemplos.
 - Sede: Instituto Caldeira, Porto Alegre. CTA padrão: "Agendar diagnóstico" / "Comente DIAGNÓSTICO".
 
+## Design System (fonte principal, pedido do Gabriel em 22/11/2026)
+- Siga o Design System "4metrics" (artifact https://claude.ai/artifact/YVoinCoPgKsu24GwhzVZtL: project/README.md, tokens.json, components/bundle.css) à risca: tokens, formatos, arredondamentos e componentes. Ele prevalece sobre qualquer regra abaixo.
+- Ferramenta: kit/tools/ds4m.py (temas light/dark/nevoa/lima/photo com os tokens exatos, componentes .card/.btn/.badge/.mark/.delta, frames .fe 540x675 e .st 540x960 renderizados a 2x). Referência de uso: kit/tools/pauta_ds.py.
+- Raio: 6 (marcador), 8 (botões), 16 (cards), 999 (pílulas). Tipo: display 56/60 (um por peça), h1 36/44, h2 24/32, body 16/24. Uma palavra-chave por título (marcador lima no claro, texto verde no escuro). Glow 1–2 por tela, nunca atrás de texto. Sem label em caixa alta espaçada. Ícones Lucide com traço 1.5. Logo do canto: só o logotipo (no fundo lima, a versão sobre lima).
+
 ## MIV (obrigatório)
 - Cores: azul-noite #05131C (nunca preto), cards #14232C, bordas #2B3640, verde 4metrics #92C549, verde texto em fundo claro #406500, névoa #EAF5DD.
 - Fontes: Plus Jakarta Sans (títulos 600/700) e Inter (texto). Arquivos em kit/fonts.
