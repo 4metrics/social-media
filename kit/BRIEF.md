@@ -51,3 +51,19 @@ Varie os layouts ao longo das semanas. Não use o mesmo layout em dois carrossé
 - Barra de progresso no rodapé (segmentos). Sem "1/7" ou número de tela.
 - Fundo alterna claro e névoa (escuro só se o post pedir). Capa com foto de banco de imagens que combine com o tema.
 - Funciona melhor no LinkedIn (parece conteúdo de pessoa). No Instagram, também funciona.
+
+### Variação de layout (pedido do Gabriel em 22/11/2026)
+- Chega de repetir "foto cortada ao meio com texto embaixo". No máximo 1 capa assim a cada 5 posts. Se usar foto, use a foto na tela toda, com gradiente navy/verde por cima de toda a imagem.
+- Use gradientes de tela cheia da MIV: mesh (navy + brilhos verdes nos cantos), névoa → branco, lima em degradê (#B5DB7E → #92C549 → #7FB23A), glow verde central sobre navy. Sempre com a malha de pontos por cima.
+- Repertório para alternar (não repetir o mesmo em 2 posts seguidos):
+  1. Tipográfico em tela cheia sobre gradiente mesh.
+  2. Número gigante no centro com glow.
+  3. Hub: símbolo no centro e chips das fontes em volta.
+  4. Cards empilhados (alertas Crítico, Atenção, Destaque).
+  5. Comparativo em tabela (riscado x certo).
+  6. Linha do tempo com barra de etapas (F.I.A.).
+  7. Mockup reto de navegador ou notebook com tela da plataforma.
+  8. Post-texto (card branco).
+  9. Foto em tela cheia com gradiente sobre toda a imagem.
+  10. Calendário, gráfico de barras ou dado visual da marca.
+- Referência: kit/tools/stories_como_funciona.py (stories "Como funciona", 23/11/2026).
