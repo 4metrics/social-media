@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Modo Agêntico · Vitrine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* VOICE: direta, de praticante; a home é um mapa de trilha que você arrasta.
+   IDEA: um mapa de trilha: a linha pontilhada anda do kit grátis até o time, com atalhos.
+   PICTURE: cartões de produto desenhados (não PDFs), cada um com rótulo de passo em cima, ligados pela trilha.
+   COLOUR and TYPE: MIV — fundo #F6F7F9, ink #14161A, azul #2B59FF, amarelo só como marcador. Inter. Sem sombra, sem gradiente.
+   LAYOUT: tela cheia arrastável e infinita; slogan fixo no centro; menu e filtro em pílula; detalhe em duas colunas com URL própria. */
+:root{color-scheme:light;--bg:#F6F7F9;--ink:#14161A;--muted:#5F6672;--line:#E4E7EC;--blue:#2B59FF;--blue2:#E8EEFF;--hl:#FFD84D}
+*{box-sizing:border-box;min-width:0}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip}
+body.detail,body.sheet{overflow:hidden}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+#top{position:relative;height:100vh;height:100svh;overflow:hidden}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none;padding:0;text-align:left}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+#stage{position:absolute;inset:0;touch-action:none;cursor:grab;user-select:none;-webkit-user-select:none;overflow:hidden}
+#stage.drag{cursor:grabbing}
+#cam{position:absolute;left:0;top:0;transform-origin:0 0;will-change:transform}
+.world{position:absolute;width:2000px;height:1240px}
+.world svg.trail{position:absolute;inset:0;width:2000px;height:1240px;overflow:visible;pointer-events:none}
+.path{fill:none;stroke:var(--blue);stroke-width:3;stroke-linecap:round;stroke-dasharray:1 12;animation:walk 1.2s linear infinite}
+.path.alt{stroke:#9AA3B2;stroke-width:2.5;stroke-dasharray:1 10;animation-duration:2s}
+@keyframes walk{to{stroke-dashoffset:-26}}
+.tlabel{font:600 13px Inter,sans-serif;fill:var(--muted)}
+.card{position:absolute;width:280px;transition:opacity .4s,transform .3s cubic-bezier(.2,.8,.2,1)}
+.card:hover{transform:translateY(-4px)}
+.lab{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.step{flex:none;width:26px;height:26px;border-radius:99px;background:var(--blue);color:#fff;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center}
+.kind{font-size:12px;font-weight:600;color:var(--blue);background:var(--blue2);border-radius:6px;padding:3px 8px}
+.kind.free{background:var(--hl);color:var(--ink)}
+.name{display:block;font-size:20px;font-weight:600;line-height:1.15;letter-spacing:-.01em;margin:0 0 12px;text-wrap:balance}
+.th{position:relative;width:280px;height:196px;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#fff}
+.sat{position:absolute;width:210px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;transition:opacity .4s}
+.sat small{font-size:11px;font-weight:600;color:var(--blue)}
+.sat b{display:block;font-size:15px;font-weight:600;line-height:1.2;margin:4px 0}
+.sat p{margin:0;font-size:12.5px;color:var(--muted);line-height:1.4}
+.sat .logos{display:flex;gap:6px;margin-top:10px}.logos img{width:20px;height:20px}
+.fade{opacity:.15}
+.t-kit{background:var(--blue)}
+.t-kit .sheet{position:absolute;left:28px;top:26px;width:172px;height:190px;background:#fff;border-radius:6px;transform:rotate(-4deg);padding:14px}
+.t-kit .sheet b{font-size:12px}.ln{height:6px;border-radius:3px;background:var(--line);margin:8px 0}
+.t-kit mark{background:var(--hl);font-size:11px;font-weight:600;padding:1px 4px;border-radius:2px}
+.t-kit .ok{display:flex;gap:6px;align-items:center;font-size:10.5px;margin-top:6px}.t-kit .ok i{width:12px;height:12px;border-radius:3px;background:var(--blue2);color:var(--blue);font-style:normal;font-size:9px;display:grid;place-items:center}
+.t-kit .tg{position:absolute;right:18px;bottom:18px}
+.t-soc{background:var(--blue2)}
+.phone{position:absolute;left:84px;top:18px;width:112px;height:200px;background:#fff;border:2px solid var(--ink);border-radius:18px;padding:16px 8px}
+.grid9{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}.grid9 span{aspect-ratio:1;border-radius:3px;background:var(--line)}
+.grid9 span:nth-child(1),.grid9 span:nth-child(5){background:var(--blue)}.grid9 span:nth-child(3){background:var(--hl)}.grid9 span:nth-child(7){background:var(--ink)}
+.pill{position:absolute;font-size:10.5px;font-weight:600;background:#fff;border:1px solid var(--line);border-radius:99px;padding:3px 9px}
+.t-dash .bar3{height:22px;border-bottom:1px solid var(--line);display:flex;gap:5px;align-items:center;padding:0 10px}.bar3 i{width:7px;height:7px;border-radius:99px;background:var(--line)}
+.t-dash img{width:100%;height:174px;object-fit:cover;object-position:top left;display:block}
+.t-cpa{padding:18px}
+.t-cpa .k{font-size:11px;color:var(--muted)}.t-cpa .v{font-size:22px;font-weight:600;letter-spacing:-.02em}.t-cpa .v span{color:var(--blue)}
+.split{display:flex;height:28px;border-radius:6px;overflow:hidden;margin:14px 0 6px}.split i{display:block}
+.legend{display:flex;justify-content:space-between;font-size:10.5px;color:var(--muted)}
+.t-combo{background:var(--ink)!important}
+.mini{position:absolute;width:104px;height:136px;border-radius:8px;padding:10px;font-size:11px;font-weight:600}
+.t-combo .tag{position:absolute;right:14px;top:14px;background:var(--hl);color:var(--ink);font-size:12px;font-weight:600;border-radius:6px;padding:3px 8px}
+.t-curso{background:var(--ink)!important;color:#fff}
+.t-curso .play{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);width:58px;height:58px;border-radius:99px;background:var(--blue);display:grid;place-items:center}
+.t-curso .prog{position:absolute;left:16px;right:16px;bottom:38px;height:4px;border-radius:2px;background:#3A3F47}.t-curso .prog i{display:block;width:42%;height:100%;background:var(--blue);border-radius:2px}
+.t-curso .cap{position:absolute;left:16px;bottom:12px;font-size:11px;color:#C4CBD6}
+.t-emp{padding:18px}
+.weeks{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:12px}
+.weeks div{border-radius:8px;padding:8px 7px;font-size:10px;line-height:1.25;height:96px;display:flex;flex-direction:column;justify-content:space-between}
+.weeks b{font-size:11px}
+#hero{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;pointer-events:none;z-index:5;padding:16px 22px;background:rgba(246,247,249,.55);-webkit-backdrop-filter:blur(14px) saturate(1.2);backdrop-filter:blur(14px) saturate(1.2);border:1px solid rgba(255,255,255,.7);border-radius:18px;width:min(400px,80vw);transition:opacity .4s}
+#hero h1{font-size:clamp(22px,2.6vw,32px);line-height:1.08;letter-spacing:-.02em;font-weight:600;margin:10px 0 6px;text-wrap:balance}
+#hero p{margin:0;color:#3F4550;font-size:13.5px;line-height:1.45;text-wrap:balance}
+#hero .hint{display:inline-flex;gap:6px;align-items:center;margin-top:8px;font-size:12px;font-weight:500;color:var(--blue)}
+body.detail #hero,body.detail #fbtn,body.detail .proto{opacity:0;pointer-events:none}
+.tg rect{transition:fill .5s}.tg .k{transition:transform .6s cubic-bezier(.6,0,.2,1)}.tg .e{transition:opacity .3s .5s}
+.tg.off rect{fill:#D5D9E0}.tg.off .k{transform:translateX(-48px)}.tg.off .e{opacity:0}
+.logo{position:fixed;left:18px;top:16px;z-index:40;display:flex;align-items:center;gap:9px;font-weight:600;font-size:17px;letter-spacing:-.01em;text-decoration:none;color:var(--ink);background:#fff;border:1px solid var(--line);padding:7px 12px 7px 8px;border-radius:99px}
+nav.menu{position:fixed;right:16px;top:16px;z-index:40;display:flex;gap:2px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:99px;padding:4px}
+nav.menu button{min-height:36px;padding:0 14px;border-radius:99px;font-size:14px;font-weight:500}
+nav.menu button:hover{background:var(--bg)}nav.menu .cta{background:var(--blue);color:#fff}nav.menu .cta:hover{background:#1f47e0}
+#fbtn{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);z-index:20;display:flex;align-items:center;gap:10px;background:var(--blue);color:#fff;border-radius:12px;min-height:46px;padding:0 18px;font-weight:500;font-size:15px;transition:opacity .3s}
+#fbtn .x{display:none;width:20px;height:20px;border-radius:99px;background:#fff;color:var(--blue);font-size:13px;line-height:20px;text-align:center}
+#fbtn.on .x{display:inline-block}
+#fpanel{position:absolute;left:50%;bottom:22px;transform:translate(-50%,16px);z-index:30;width:min(820px,calc(100vw - 32px));max-height:calc(100vh - 110px);overflow:auto;background:var(--blue);color:#fff;border-radius:16px;padding:26px 28px 28px;opacity:0;pointer-events:none;transition:.3s}
+#fpanel.open{opacity:1;pointer-events:auto;transform:translate(-50%,0)}
+#fpanel .cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+#fpanel h3{margin:0 0 10px;font-size:14px;font-weight:600}
+#fpanel .opt{display:block;padding:5px 0;font-size:14px;color:#DCE4FF}#fpanel .opt:hover,#fpanel .opt.sel{color:#fff}#fpanel .opt.sel::before{content:"• "}
+#fpanel sup{font-size:10px;opacity:.75;margin-left:3px}
+#fpanel .close{position:absolute;right:12px;top:10px;width:40px;height:40px;font-size:22px;color:#fff;text-align:center}
+#cur{position:fixed;left:0;top:0;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:99px;background:var(--blue);color:#fff;z-index:40;pointer-events:none;display:flex;align-items:center;justify-content:center;font-size:22px;transform:scale(0);transition:transform .2s}
+#cur.on{transform:scale(1)}
+#detail{position:fixed;inset:0;z-index:15;overflow-y:auto;overscroll-behavior:contain;visibility:hidden}
+body.detail #detail{visibility:visible;background:rgba(246,247,249,.94);transition:background .4s}
+.d-hero{height:100vh;display:grid;place-items:center;position:relative;overflow:hidden}
+.d-title{font-size:clamp(52px,10.5vw,160px);line-height:.9;letter-spacing:-.04em;font-weight:600;text-align:center;text-transform:uppercase;margin:0;opacity:0;transform:translateY(30px);transition:.7s .15s;padding:0 12px}
+.d-title em{font-style:normal;color:var(--blue);display:block}
+body.detail .d-title{opacity:1;transform:none}
+.d-thumb{position:fixed;left:50%;top:50%;width:280px;transform:translate(-50%,-50%) scale(var(--s,2));z-index:16;pointer-events:none;opacity:0}
+.d-thumb.go{transition:left .6s cubic-bezier(.2,.8,.2,1),top .6s cubic-bezier(.2,.8,.2,1),transform .6s cubic-bezier(.2,.8,.2,1)}
+.d-down{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);font-size:13px;font-weight:500;color:var(--muted)}
+.dbar{position:fixed;left:18px;top:72px;z-index:25;display:none;gap:8px}
+body.detail .dbar{display:flex}
+.dbar button{min-height:40px;padding:0 16px;border-radius:99px;background:#fff;border:1px solid var(--line);font-weight:500;font-size:14px}
+.d-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);background:var(--bg);border-top:1px solid var(--line);position:relative;z-index:17}
+.gal{padding:24px;display:grid;gap:24px;background:#fff;border-left:1px solid var(--line);align-content:start}
+.gal h3{margin:0;font-size:13px;font-weight:600;color:var(--muted)}
+.gal img{width:100%;border:1px solid var(--line);border-radius:4px;display:block}
+.info{padding:clamp(28px,4vw,56px);position:sticky;top:0;align-self:start;max-height:100vh;overflow:auto}
+.info .lab{margin-top:24px}
+.info h2{font-size:clamp(34px,4vw,52px);line-height:1;letter-spacing:-.03em;font-weight:600;margin:6px 0 0;text-transform:uppercase}
+.info h2 em{font-style:normal;color:var(--blue);display:block}
+.url{display:inline-flex;margin-top:14px;font-size:13px;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:8px;padding:4px 10px}
+.quote{margin:22px 0 20px;font-size:17px;max-width:46ch}
+.specs{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;font-size:14px;margin:0 0 20px}.specs dt{color:var(--muted)}.specs dd{margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 20px}
+.chip{display:inline-flex;gap:6px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:99px;padding:4px 10px 4px 6px;font-size:13px;font-weight:500}.chip img{width:18px;height:18px}
+details{border-top:1px solid var(--line)}details:last-of-type{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;min-height:48px;font-size:13px;font-weight:600}
+summary::-webkit-details-marker{display:none}summary::after{content:"+";font-size:20px;font-weight:400;color:var(--muted)}details[open] summary::after{content:"−"}
+details ul,details p{margin:0 0 16px;padding-left:18px;font-size:14px;color:var(--muted)}details p{padding:0}
+.buy{display:flex;gap:10px;align-items:center;margin-top:24px}
+.buy .price{font-weight:600;font-size:20px;margin-right:auto}.buy .price s{color:var(--muted);font-weight:400;font-size:15px;margin-right:6px}
+.btn{min-height:48px;padding:0 22px;border-radius:99px;background:var(--blue);color:#fff;font-weight:500;font-size:15px;text-align:center}
+.next{margin-top:22px;font-size:14px;color:var(--muted)}.next button{color:var(--blue);font-weight:500}
+.modal{position:fixed;inset:0;z-index:50;display:none;align-items:center;justify-content:center;background:rgba(20,22,26,.4);padding:16px}
+.modal.open{display:flex}
+.box{background:#fff;border-radius:16px;padding:30px;width:min(440px,100%);position:relative;max-height:90vh;overflow:auto}
+.box h3{margin:16px 0 8px;font-size:26px;line-height:1.1;letter-spacing:-.02em;font-weight:600}
+.box p{margin:0 0 18px;color:var(--muted);font-size:15px}
+.box label{display:block;font-size:13px;font-weight:500;margin:12px 0 6px}
+.box input{width:100%;min-height:46px;border:1px solid var(--line);border-radius:10px;padding:0 14px;font:16px Inter,sans-serif}
+.box .btn{width:100%;margin-top:18px}
+.box .x{position:absolute;right:10px;top:8px;width:40px;height:40px;font-size:22px;color:var(--muted);text-align:center}
+.toast{position:fixed;left:50%;bottom:84px;transform:translate(-50%,20px);background:var(--ink);color:#fff;font-size:14px;padding:12px 18px;border-radius:12px;z-index:60;opacity:0;transition:.3s;pointer-events:none;max-width:calc(100vw - 32px);text-align:center}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+.proto{position:absolute;left:18px;bottom:30px;z-index:19;font-size:12px;color:var(--muted);margin:0}
+/* menu, sobre, rodapé */
+nav.menu .burger{display:none;width:40px;height:36px;border-radius:99px;text-align:center}
+.sheetnav{position:fixed;inset:0;z-index:35;background:var(--bg);padding:84px 24px 24px;display:none;flex-direction:column;gap:4px}
+body.sheet .sheetnav{display:flex}
+.sheetnav a{font-size:28px;font-weight:600;letter-spacing:-.02em;padding:8px 0;text-decoration:none;color:var(--ink);border-bottom:1px solid var(--line)}
+.sheetnav a.cta{color:var(--blue)}
+.more{position:absolute;right:20px;bottom:30px;z-index:19;font-size:13px;font-weight:500;color:var(--muted);text-decoration:none}
+.sec{padding:clamp(56px,8vw,112px) max(5vw,20px);border-top:1px solid var(--line)}
+.wrap{max-width:1160px;margin:0 auto}
+.eyebrow{font-size:13px;font-weight:600;color:var(--blue)}
+.sec h2{font-size:clamp(30px,4vw,48px);line-height:1.05;letter-spacing:-.025em;font-weight:600;margin:10px 0 18px;max-width:20ch;text-wrap:balance}
+.sec h2 mark{background:var(--hl);padding:0 6px;border-radius:4px}
+.lead{font-size:18px;color:var(--muted);max-width:60ch;margin:0}
+.about{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:clamp(32px,6vw,80px);align-items:start}
+.princ{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:36px}
+.princ div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px}
+.princ b{display:block;font-size:17px;margin:10px 0 6px}.princ p{margin:0;font-size:14px;color:var(--muted)}
+.ic{width:36px;height:36px;border-radius:10px;background:var(--blue2);color:var(--blue);display:grid;place-items:center}
+.person{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px}
+.person img.ph{width:96px;height:96px;border-radius:99px;object-fit:cover;display:block}
+.person b{display:block;font-size:20px;margin:16px 0 2px}.person span{color:var(--muted);font-size:14px}
+.person p{font-size:15px;margin:14px 0 0}
+.steps{list-style:none;margin:36px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;counter-reset:s}
+.steps li{border-top:2px dotted var(--blue);padding-top:16px}
+.steps .n{display:inline-flex;width:28px;height:28px;border-radius:99px;background:var(--blue);color:#fff;font-weight:600;font-size:13px;align-items:center;justify-content:center}
+.steps h3{font-size:18px;margin:12px 0 6px;font-weight:600}.steps p{margin:0 0 10px;font-size:14px;color:var(--muted)}
+.steps a{display:block;font-size:14px;font-weight:500;color:var(--blue);text-decoration:none;padding:3px 0}.steps a:hover{text-decoration:underline}
+.faq{max-width:760px;margin-top:28px}.faq details summary{font-size:16px;font-weight:600;text-transform:none}.faq details p{font-size:15px}
+footer{background:var(--ink);color:#C4CBD6;padding:56px max(5vw,20px) 28px}
+footer .cols{display:grid;grid-template-columns:minmax(0,1.5fr) repeat(3,minmax(0,1fr));gap:32px;max-width:1160px;margin:0 auto}
+footer .brand{display:flex;align-items:center;gap:10px;color:#fff;font-weight:600;font-size:18px}
+footer h4{color:#fff;font-size:14px;margin:0 0 12px;font-weight:600}
+footer a{display:block;color:#C4CBD6;text-decoration:none;font-size:14px;padding:4px 0}footer a:hover{color:#fff}
+footer .legal{max-width:1160px;margin:40px auto 0;padding-top:20px;border-top:1px solid #2A2E37;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:#9AA0AB}
+.big{font-size:clamp(20px,2.4vw,28px);font-weight:600;letter-spacing:-.015em;margin:32px 0 0;max-width:30ch}
+.princ b{font-size:16px;line-height:1.35}
+.ba{margin-top:28px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+.ba-h,.ba-r{display:grid;grid-template-columns:1fr 1fr}
+.ba-h span{display:flex;gap:10px;align-items:center;padding:14px 18px;font-weight:600;font-size:14px;background:var(--bg)}.ba-h span+span{color:var(--blue)}
+.ba-r span{padding:16px 18px;border-top:1px solid var(--line);font-size:15px}.ba-r span:first-child{color:var(--muted);text-decoration:line-through;text-decoration-color:#C4CBD6}.ba-r span+span{font-weight:500;border-left:1px solid var(--line)}
+.steps.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.quem{display:grid;grid-template-columns:200px minmax(0,1fr);gap:40px;align-items:center}
+.quem .ph{width:180px;height:180px;border-radius:99px;object-fit:cover;border:3px solid var(--blue)}
+.final{background:var(--ink);color:#fff;padding:clamp(64px,9vw,120px) max(5vw,20px) 40px}
+.final h2{font-size:clamp(30px,4.4vw,52px);line-height:1.05;letter-spacing:-.025em;font-weight:600;margin:0 0 28px;text-wrap:balance}
+.final .small{font-size:13px;color:#9AA0AB;margin:12px 0 0}.final .act{display:flex;gap:10px;align-items:center;justify-content:center;font-weight:500;margin:24px 0 0}
+footer{padding-top:24px}
+@media(max-width:760px){
+ .ba-h,.ba-r{grid-template-columns:1fr}.ba-r span+span{border-left:0;border-top:0;padding-top:0}.ba-h span+span{display:none}.steps.three,.quem{grid-template-columns:1fr}.quem .ph{width:120px;height:120px}
+ nav.menu .burger{display:inline-block}.about,.princ,.steps{grid-template-columns:1fr}footer .cols{grid-template-columns:1fr 1fr}footer .cols>div:first-child{grid-column:1/-1}.more{display:none}
+ nav.menu .hide-s{display:none}
+ #hero{width:min(280px,76vw);padding:12px 14px;border-radius:14px}#hero h1{font-size:20px;margin:6px 0 2px}#hero p{display:none}#hero .tg{width:40px;height:22px}.logo span{display:none}.proto{display:none}
+ .d-body{grid-template-columns:1fr}.info{position:static;max-height:none;padding-top:20px}.gal{border-left:0;border-top:1px solid var(--line)}
+ #fpanel .cols{grid-template-columns:1fr 1fr}
+ .d-hero{place-items:start center;padding-top:124px}.d-title{font-size:clamp(40px,12vw,60px)}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div id="top">
+<div id="stage" role="region" aria-label="Mapa com a trilha do Modo Agêntico. Arraste para explorar."><div id="cam"></div></div>
+
+<a class="logo" href="#" id="home"><svg width="34" height="18" viewBox="0 0 104 56" aria-hidden="true"><rect width="104" height="56" rx="28" fill="#2B59FF"/><circle cx="76" cy="28" r="20" fill="#fff"/><circle cx="69" cy="26" r="3.2" fill="#2B59FF"/><circle cx="83" cy="26" r="3.2" fill="#2B59FF"/></svg><span>modoagêntico</span></a>
+<nav class="menu" aria-label="Menu principal">
+ <button class="hide-s" data-guias>Guias</button>
+ <button class="hide-s" data-go="curso">Curso</button>
+ <button class="hide-s" data-go="empresas">Empresas</button>
+ <button class="hide-s" data-scroll="sobre">Sobre</button>
+ <button class="cta" data-kit>Kit grátis</button>
+ <button class="burger" aria-label="Abrir menu" aria-expanded="false" id="burger">☰</button>
+</nav>
+<div class="sheetnav" id="sheetnav" aria-label="Menu"><a href="#kit-gratis">Kit grátis</a><a href="#guias" data-guias>Guias</a><a href="#curso">Curso</a><a href="#empresas">Empresas</a><a href="#sobre" data-scroll="sobre">Sobre nós</a><a class="cta" href="#" data-kit>Baixar o kit grátis →</a></div>
+
+<div id="cur" aria-hidden="true">+</div>
+<div class="dbar"><button id="back">← voltar à trilha</button><button id="copy">Copiar link</button></div>
+<div id="detail" aria-live="polite"></div>
+<div id="dthumb" class="d-thumb" aria-hidden="true"></div>
+<div id="hero">
+ <svg class="tg off" id="tg" width="52" height="28" viewBox="0 0 104 56" aria-hidden="true"><rect width="104" height="56" rx="28" fill="#2B59FF"/><g class="k"><circle cx="76" cy="28" r="20" fill="#fff"/><g class="e"><circle cx="69" cy="26" r="3.2" fill="#2B59FF"/><circle cx="83" cy="26" r="3.2" fill="#2B59FF"/></g></g></svg>
+ <h1>Deixe a IA fazer. Você confere.</h1>
+ <p>IA aplicada ao trabalho, com dados no centro. O mercado ensina a pedir. Aqui você aprende a conferir.</p>
+ <span class="hint"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 9l-3 3 3 3M9 5l3-3 3 3M15 19l-3 3-3-3M19 9l3 3-3 3M2 12h20M12 2v20"/></svg>Arraste e siga a trilha</span>
+</div>
+
+<button id="fbtn" aria-expanded="false" aria-controls="fpanel"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg><span id="flabel">filtrar</span><span class="x" aria-label="Limpar filtro">×</span></button>
+<div id="fpanel" role="dialog" aria-label="Filtros"><button class="close" aria-label="Fechar filtros">×</button><div class="cols" id="fcols"></div></div>
+
+<p class="proto">Protótipo da home · os botões de compra ainda não levam ao checkout</p>
+<a class="more" href="#sobre">Sobre o Modo Agêntico ↓</a>
+</div>
+
+<main>
+<section class="sec" id="sobre" aria-labelledby="sobre-t"><div class="wrap">
+ <span class="eyebrow">Sobre nós</span>
+ <h2 id="sobre-t">Reconhece alguma?</h2>
+ <div class="princ">
+  <div><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><b>Segunda-feira inteira montando o mesmo relatório.</b></div>
+  <div><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><b>A IA da empresa virou corretor de e-mail.</b></div>
+  <div><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 2l4 4-4 4M3 11V9a3 3 0 013-3h15M7 22l-4-4 4-4M21 13v2a3 3 0 01-3 3H3"/></svg></span><b>Processos que só andam se alguém copiar, colar e encaminhar.</b></div>
+ </div>
+ <p class="big">O problema não é falta de IA. É falta de método.</p>
+</div></section>
+<section class="sec" aria-labelledby="ba-t"><div class="wrap">
+ <h2 id="ba-t">Do modo manual ao modo agêntico.</h2>
+ <div class="ba"><div class="ba-h"><span><svg class="tg" width="34" height="18" viewBox="0 0 104 56"><rect width="104" height="56" rx="28" fill="#D5D9E0"/><circle cx="28" cy="28" r="20" fill="#fff"/></svg>Modo manual</span><span><svg width="34" height="18" viewBox="0 0 104 56"><rect width="104" height="56" rx="28" fill="#2B59FF"/><circle cx="76" cy="28" r="20" fill="#fff"/><circle cx="69" cy="26" r="3.2" fill="#2B59FF"/><circle cx="83" cy="26" r="3.2" fill="#2B59FF"/></svg>Modo agêntico</span></div>
+ <div class="ba-r"><span>Baixar, copiar e colar dados</span><span>O agente lê a planilha e calcula</span></div><div class="ba-r"><span>Montar o relatório do zero toda semana</span><span>Relatório pronto para você revisar</span></div><div class="ba-r"><span>Encaminhar, cobrar e atualizar sistemas na mão</span><span>Um agente executa o processo e pede a sua aprovação</span></div><div class="ba-r"><span>Conferir tudo na mão</span><span>O agente confere e marca o que precisa de você</span></div></div>
+ <p class="big">Você para de executar e passa a revisar e decidir.</p>
+</div></section>
+<section class="sec" aria-labelledby="met-t"><div class="wrap">
+ <span class="eyebrow">O método</span><h2 id="met-t">Três passos. Nenhuma linha de código.</h2>
+ <ol class="steps three">
+  <li><span class="n">1</span><h3>Escolha a tarefa</h3><p>Use o kit para achar o que mais toma o seu tempo.</p></li>
+  <li><span class="n">2</span><h3>Delegue</h3><p>Use o método do kit e agentes prontos na IA que você já usa.</p><div class="logos" style="display:flex;gap:6px;margin-top:10px"><img src="img/claude.png" alt="Claude"><img src="img/openai.png" alt="ChatGPT"><img src="img/gemini.png" alt="Gemini"><img src="img/copilot.png" alt="Copilot"></div></li>
+  <li><span class="n">3</span><h3>Revise e decida</h3><p>Você confere, ajusta e mede o tempo que ganhou.</p></li>
+ </ol>
+</div></section>
+<section class="sec" aria-labelledby="quem-t"><div class="wrap quem">
+ <img class="ph" src="img/gabriel.jpg" alt="Gabriel Bastos, fundador do Modo Agêntico">
+ <div><h2 id="quem-t">Quem conduz</h2><p class="lead">Gabriel Bastos. Head de Growth &amp; Analytics, lidera times de dados e é fundador da 4metrics. Há mais de 10 anos coloca dados e IA para trabalhar em empresas. Ensina o que aplica todo dia.</p></div>
+</div></section>
+<section class="sec" id="trilha" aria-labelledby="trilha-t"><div class="wrap">
+ <span class="eyebrow">A trilha</span><h2 id="trilha-t">Comece grátis. Avance no seu ritmo.</h2>
+ <ol class="steps">
+  <li><span class="n">1</span><h3>Comece grátis</h3><p>Aprenda a conferir o que a IA entrega.</p><a href="#kit-gratis">Kit Modo Agêntico</a></li>
+  <li><span class="n">2</span><h3>Resolva um problema</h3><p>Um guia, um resultado pronto. R$ 67 cada.</p><a href="#guia-social-media">Social media com IA</a><a href="#guia-excel-dashboard">Do Excel ao dashboard</a><a href="#guia-cpa">Onde o CPA piorou</a><a href="#combo-3-guias">Os 3 guias por R$ 134</a></li>
+  <li><span class="n">3</span><h3>Aprenda o método</h3><p>Para qualquer problema de dados, em aulas gravadas.</p><a href="#curso">Curso Modo Agêntico</a></li>
+  <li><span class="n">4</span><h3>Leve para o time</h3><p>Agentes em uso e ganho medido em 30 dias.</p><a href="#empresas">Programa para empresas</a></li>
+ </ol>
+</div></section>
+<section class="sec" aria-labelledby="faq-t"><div class="wrap">
+ <span class="eyebrow">Dúvidas</span><h2 id="faq-t">Perguntas frequentes</h2>
+ <div class="faq">
+  <details><summary>Preciso saber programar?</summary><p>Não. Tudo funciona com conversa e arquivos. A automação do curso é opcional.</p></details>
+  <details><summary>Qual IA eu vou usar?</summary><p>A que você já tem ou que a sua empresa aprovou: ChatGPT, Claude, Gemini ou Copilot.</p></details>
+  <details><summary>É só para quem trabalha com dados?</summary><p>Não. O centro é IA nos dados, porque quase todo trabalho passa por planilha, relatório e números. Mas o método vale para automatizar qualquer processo repetitivo com agentes.</p></details>
+  <details><summary>O que é “agêntico”?</summary><p>Vem de agente: a IA que executa tarefas em etapas, usa ferramentas e entrega o resultado, com você no controle.</p></details>
+  <details><summary>E os dados da minha empresa?</summary><p>Você aprende a usar com segurança: anonimizar dados, desligar o uso para treino e seguir a política da empresa.</p></details>
+  <details><summary>Tem garantia?</summary><p>Sim. Os guias e o curso têm 7 dias de garantia.</p></details>
+ </div>
+</div></section>
+<section class="final"><div class="wrap" style="max-width:760px;text-align:center">
+ <h2>Quantas segundas-feiras você ainda vai gastar montando relatório?</h2>
+ <button class="btn" data-kit>Baixar o kit grátis</button>
+ <p class="small">Grátis. Leva 1 minuto.</p>
+ <p class="act"><svg width="40" height="22" viewBox="0 0 104 56" aria-hidden="true"><rect width="104" height="56" rx="28" fill="#2B59FF"/><circle cx="76" cy="28" r="20" fill="#fff"/><circle cx="69" cy="26" r="3.2" fill="#2B59FF"/><circle cx="83" cy="26" r="3.2" fill="#2B59FF"/></svg>Ative o modo agêntico.</p>
+</div></section>
+</main>
+<footer>
+ <div class="cols">
+  <div><span class="brand"><svg width="38" height="20" viewBox="0 0 104 56" aria-hidden="true"><rect width="104" height="56" rx="28" fill="#2B59FF"/><circle cx="76" cy="28" r="20" fill="#fff"/><circle cx="69" cy="26" r="3.2" fill="#2B59FF"/><circle cx="83" cy="26" r="3.2" fill="#2B59FF"/></svg>modoagêntico</span><p style="margin:14px 0 0;font-size:15px;color:#fff">Deixe a IA fazer. Você confere.</p><p style="margin:6px 0 0;font-size:14px">IA aplicada ao trabalho, com dados no centro.</p></div>
+  <div><h4>Produtos</h4><a href="#kit-gratis">Kit grátis</a><a href="#guia-social-media">Guia: Social media com IA</a><a href="#guia-excel-dashboard">Guia: Do Excel ao dashboard</a><a href="#guia-cpa">Guia: Onde o CPA piorou</a><a href="#curso">Curso Modo Agêntico</a><a href="#empresas">Para empresas</a></div>
+  <div><h4>Modo Agêntico</h4><a href="#sobre" data-scroll="sobre">Sobre nós</a><a href="#trilha" data-scroll="trilha">A trilha</a><a href="https://instagram.com/modoagentico">Instagram @modoagentico</a></div>
+  <div><h4>Legal</h4><a href="#termos">Termos de uso</a><a href="#privacidade">Política de privacidade</a></div>
+ </div>
+ <div class="legal"><span>© 2026 Modo Agêntico</span><span>Claude, ChatGPT, Gemini, Copilot, Excel e Google Sheets são marcas dos seus donos.</span></div>
+</footer>
+<div class="modal" id="mkit" role="dialog" aria-modal="true" aria-labelledby="mkt"><form class="box" id="fkit"><button type="button" class="x" aria-label="Fechar">×</button>
+ <svg width="52" height="28" viewBox="0 0 104 56" aria-hidden="true"><rect width="104" height="56" rx="28" fill="#2B59FF"/><circle cx="76" cy="28" r="20" fill="#fff"/><circle cx="69" cy="26" r="3.2" fill="#2B59FF"/><circle cx="83" cy="26" r="3.2" fill="#2B59FF"/></svg>
+ <h3 id="mkt">Receba o kit grátis</h3><p>1 situação resolvida, 4 desafios, a caça ao erro, a planilha de treino e 3 agentes.</p>
+ <label for="kn">Nome</label><input id="kn" required autocomplete="given-name">
+ <label for="ke">E-mail</label><input id="ke" type="email" required autocomplete="email">
+ <button class="btn" type="submit">Quero o kit grátis</button>
+</form></div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+{
+const $=s=>document.querySelector(s);
+const T={claude:"Claude",openai:"ChatGPT",gemini:"Gemini",copilot:"Copilot",excel:"Excel",sheets:"Google Sheets"};
+const AI=["claude","openai","gemini","copilot"];
+const TG=w=>`<svg class="tg" width="${w}" height="${Math.round(w*56/104)}" viewBox="0 0 104 56"><rect width="104" height="56" rx="28" fill="#fff"/><circle cx="76" cy="28" r="20" fill="#2B59FF"/><circle cx="69" cy="26" r="3.2" fill="#fff"/><circle cx="83" cy="26" r="3.2" fill="#fff"/></svg>`;
+const THUMB={
+ kit:`<div class="th t-kit"><div class="sheet"><b>Caça ao erro</b><div class="ln" style="width:90%"></div><div style="font-size:10.5px">Receita: <s style="color:#5F6672">−2,7%</s> <mark>−1,7%</mark></div><div class="ln" style="width:70%"></div><div class="ok"><i>✓</i>A conta fecha</div><div class="ok"><i>✓</i>As partes somam o total</div><div class="ok"><i>✓</i>Nenhuma causa inventada</div></div>${TG(56)}</div>`,
+ social:`<div class="th t-soc"><div class="phone"><div class="grid9">${"<span></span>".repeat(9)}</div><div class="ln" style="width:80%;margin-top:12px"></div><div class="ln" style="width:55%"></div></div><span class="pill" style="left:14px;top:34px">Brief ✓</span><span class="pill" style="left:14px;top:66px;background:#2B59FF;color:#fff;border-color:#2B59FF">Aprovado</span><span class="pill" style="right:12px;bottom:30px">Agendado · seg 9h</span></div>`,
+ dash:`<div class="th t-dash"><div class="bar3"><i></i><i></i><i></i></div><img src="img/dashboard.jpg" alt=""></div>`,
+ cpa:`<div class="th t-cpa"><div class="k">CPA · semana contra semana</div><div class="v">R$ 35,04 → <span>R$ 47,20</span></div><div class="split"><i style="width:77%;background:#2B59FF"></i><i style="width:23%;background:#FFD84D"></i></div><div class="legend"><span><b style="color:#14161A">77%</b> mudança de mix</span><span><b style="color:#14161A">23%</b> desempenho</span></div></div>`,
+ combo:`<div class="th t-combo"><div class="mini" style="left:26px;top:40px;background:#fff;transform:rotate(-8deg)">Social media</div><div class="mini" style="left:88px;top:30px;background:#2B59FF;color:#fff">Dashboard</div><div class="mini" style="left:150px;top:40px;background:#FFD84D;transform:rotate(8deg)">CPA</div><span class="tag">3 por 2</span></div>`,
+ curso:`<div class="th t-curso"><div class="play"><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div><div class="prog"><i></i></div><span class="cap">Aula 3 · Monte o agente · 40 min</span></div>`,
+ empresas:`<div class="th t-emp"><div style="font-size:12px;font-weight:600">30 dias com o seu time</div><div class="weeks"><div style="background:#E8EEFF"><b>Sem. 0</b>Diagnóstico</div><div style="background:#2B59FF;color:#fff"><b>Dia D</b>Workshop de 3 h</div><div style="background:#E8EEFF"><b>Sem. 1–4</b>Uso com dados reais</div><div style="background:#14161A;color:#fff"><b>Dia 30</b>Ganho medido</div></div></div>`
+};
+const COMO=["O que você precisa","O que digitar","O que deve aparecer (gabarito)","Quando quebra","Pronto quando"];
+const P={
+ kit:{slug:"kit-gratis",step:1,kind:"Kit grátis",free:1,name:"Kit Modo Agêntico",t1:"Kit Modo",t2:"Agêntico",em:"Grátis",fmt:"Grátis",shelf:"Dados",tools:[...AI,"excel"],gal:["kit-1","kit-4","kit-9","kit-11"],x:140,y:470,
+  quote:"Um prompt bom você acha em 2 minutos. O difícil vem depois: saber se o número que a IA entregou está certo.",
+  specs:[["Formato","PDF de 13 páginas"],["Inclui","Planilha de treino e 3 agentes"],["Treina","Conferir o que a IA entrega"],["Entrega","Na hora, por e-mail"]],
+  rec:["1 situação resolvida, com pedido e gabarito","4 desafios para fazer na sua ferramenta","Caça ao erro: 1 relatório com 5 erros","Semáforo de dados","Planilha de treino (.xlsx e .csv)","3 agentes: Dicionário de dados, Comparador de períodos e Revisor de relatório"],
+  pronto:"Você acha os 5 erros do relatório da caça ao erro.",price:"Grátis",cta:"Baixar grátis",next:"dash"},
+ social:{slug:"guia-social-media",step:2,kind:"Guia · R$ 67",name:"Social media com IA",t1:"Social media",t2:"com IA",em:"R$ 67",fmt:"Guia",shelf:"Bastidores",tools:["claude"],gal:["soc-1","soc-2","soc-4","soc-6"],x:440,y:90,
+  quote:"Do brief ao post agendado, com você aprovando cada peça antes de publicar.",
+  specs:[["Estante","Bastidores"],["Passos","7, com gabarito"],["Entrega","PDF e modelo de brief"],["Garantia","7 dias"]],
+  rec:["Guia em PDF com 7 passos","Modelo de brief","Os pedidos prontos para copiar"],pronto:"O post sai agendado e você aprovou cada peça.",price:"R$ 67",cta:"Comprar o guia",next:"curso"},
+ dash:{slug:"guia-excel-dashboard",step:2,kind:"Guia · R$ 67",name:"Do Excel ao dashboard, sem número errado",t1:"Do Excel ao",t2:"dashboard",em:"R$ 67",fmt:"Guia",shelf:"Dados",tools:[...AI,"excel","sheets"],gal:["dash-1","dashboard","dash-2","dash-7"],x:860,y:70,
+  quote:"A IA monta a tela em segundos. O risco está no que a tela bonita esconde: a definição do número, a conta e quem consegue abrir.",
+  specs:[["Estante","Dados"],["Passos","8, com gabarito"],["Entrega","PDF, planilha, dashboard-modelo e 1 agente"],["Garantia","7 dias"]],
+  rec:["Guia em PDF com 8 passos","Planilha de treino","Dashboard-modelo para comparar com o seu","Agente Primeira leitura de uma base"],pronto:"Os 3 números do dashboard batem com a base.",price:"R$ 67",cta:"Comprar o guia",next:"curso"},
+ cpa:{slug:"guia-cpa",step:2,kind:"Guia · R$ 67",name:"Onde o CPA piorou",t1:"Onde o CPA",t2:"piorou",em:"R$ 67",fmt:"Guia",shelf:"Marketing de performance",tools:AI,gal:["cpa-1","cpa-2","cpa-6"],x:1280,y:90,
+  quote:"O CPA subiu. Antes de mexer na campanha, separe o que é mudança de mix do que é piora de desempenho.",
+  specs:[["Estante","Marketing de performance"],["Passos","7, com gabarito"],["Entrega","PDF, base de campanhas e 1 agente"],["Garantia","7 dias"]],
+  rec:["Guia em PDF","Base de campanhas de treino","Agente Analista de campanha (CPA e ROAS)"],pronto:"Você diz quanto da piora é mix e quanto é desempenho.",price:"R$ 67",cta:"Comprar o guia",next:"curso"},
+ combo:{slug:"combo-3-guias",step:2,kind:"Combo · R$ 134",name:"Os 3 guias: leve 3, pague 2",t1:"Leve 3,",t2:"pague 2",em:"R$ 134",fmt:"Guia",shelf:"Todas",tools:AI,gal:["soc-1","dash-1","cpa-1"],x:1660,y:150,
+  quote:"Os 3 guias por R$ 134. Cada um resolve um problema do início ao fim e entrega o resultado pronto.",
+  specs:[["Guias","Social media com IA · Do Excel ao dashboard · Onde o CPA piorou"],["Economia","R$ 67"],["Garantia","7 dias"]],
+  rec:["Os 3 guias completos, com os arquivos de cada um"],pronto:"Você tem os 3 resultados prontos.",price:"R$ 134",cta:"Quero os 3 guias",next:"curso"},
+ curso:{slug:"curso",step:3,kind:"Curso · pré-venda",name:"Curso Modo Agêntico",t1:"Curso Modo",t2:"Agêntico",em:"R$ 297",fmt:"Curso",shelf:"Dados",tools:AI,gal:["curso-1","eng-1","eng-3","eng-5"],x:1590,y:490,
+  quote:"O método para usar IA em qualquer problema de dados, sem número errado. Em aulas gravadas.",
+  specs:[["Aulas","6 gravadas + módulo Engenharia de Agentes"],["Liberação","01/12/2026"],["Bônus","31 agentes"],["Garantia","7 dias"]],
+  rec:["6 aulas gravadas","Material das aulas e planilha-modelo","Módulo Engenharia de Agentes: 10 conceitos e 6 skills","Gabaritos dos 4 desafios do kit","Bônus: 31 agentes para Claude, ChatGPT, Gemini e Copilot"],pronto:"O seu agente passa numa semana nova e o ganho de tempo está medido.",price:"<s>R$ 397</s>R$ 297",cta:"Quero o curso",next:"empresas"},
+ empresas:{slug:"empresas",step:4,kind:"Para empresas",name:"Programa de 30 dias para times",t1:"Programa",t2:"de 30 dias",em:"Para times",fmt:"Empresas",shelf:"Dados",tools:["copilot","gemini","openai","claude"],gal:["emp-1"],x:560,y:880,
+  quote:"Sua empresa paga IA. O time ainda trabalha no modo manual.",
+  specs:[["Duração","30 dias"],["Formato","Diagnóstico, workshop de 3 h, 4 semanas de uso e revisão"],["Ferramentas","A IA que a empresa já aprovou"],["Preço","Sob proposta"]],
+  rec:["Mapa de tarefas","1 agente testado por grupo, com ficha e dono","Política de dados de 1 página","Biblioteca de agentes do time","Relatório de ganho medido pelo time"],pronto:"Os agentes estão em uso e o ganho foi medido pelo time.",price:"Sob proposta",cta:"Pedir proposta",next:"kit"}
+};
+const BYSLUG=Object.fromEntries(Object.entries(P).map(([k,v])=>[v.slug,k]));
+const c=k=>[P[k].x+140,P[k].y+184];
+const seg=(a,b,bend=0)=>{const[x1,y1]=c(a),[x2,y2]=c(b),mx=(x1+x2)/2,my=(y1+y2)/2,dx=x2-x1,dy=y2-y1;return `Q ${mx-dy*bend} ${my+dx*bend} ${x2} ${y2}`};
+const MAIN=`M ${c("kit").join(" ")} ${seg("kit","social",.25)} ${seg("social","dash",.15)} ${seg("dash","cpa",.15)} ${seg("cpa","curso",-.35)} ${seg("curso","empresas",-.2)} ${seg("empresas","kit",-.2)}`;
+const ALT=[`M ${c("cpa").join(" ")} ${seg("cpa","combo",.2)} ${seg("combo","curso",.15)}`,`M ${c("kit").join(" ")} ${seg("kit","curso",.12)}`];
+const LBL=[[140,438,"1 · Comece grátis"],[880,40,"2 · Resolva um problema"],[1640,460,"3 · Aprenda o método"],[880,1000,"4 · Leve para o time"],[640,700,"atalho: direto para o curso"]];
+function world(i,j){return `<div class="world" style="left:${i*2000}px;top:${j*1240}px"><svg class="trail" viewBox="0 0 2000 1240"><path class="path" d="${MAIN}"/>${ALT.map(d=>`<path class="path alt" d="${d}"/>`).join("")}${LBL.map(([x,y,t])=>`<text class="tlabel" x="${x}" y="${y}">${t}</text>`).join("")}</svg>
+ ${[].map(s=>`<button class="sat" data-p="${s.p}" style="left:${s.x}px;top:${s.y}px"><small>${s.s}</small><b>${s.b}</b><p>${s.t}</p>${s.l?`<div class="logos">${AI.map(k=>`<img src="img/${k}.png" alt="">`).join("")}</div>`:""}</button>`).join("")}
+ ${Object.entries(P).map(([k,p])=>`<button class="card" data-p="${k}" style="left:${p.x}px;top:${p.y}px" aria-label="Abrir ${p.name}"><div class="lab"><span class="step">${p.step}</span><span class="kind${p.free?" free":""}">${p.kind}</span></div><span class="name">${p.name}</span>${THUMB[k]}</button>`).join("")}</div>`}
+const cam=$("#cam"),stage=$("#stage"),WW=2000,WH=1240;let S=1,ox=0,oy=0,vx=0,vy=0,filter=null;
+function build(){S=innerWidth<760?.56:Math.min(1,(innerWidth-60)/1820,(innerHeight-70)/1150);cam.innerHTML=world(0,0);applyF();place()}
+const mod=(a,n)=>((a%n)+n)%n;
+const clamp=(v,size,view)=>{const m=Math.min(120,view*.15),w=size*S;return w<view-2*m?(view-w)/2:Math.min(m,Math.max(view-w-m,v))};
+function place(){const cx=clamp(ox,WW,innerWidth),cy=clamp(oy,WH,innerHeight);if(cx!==ox){ox=cx;vx=0}if(cy!==oy){oy=cy;vy=0}cam.style.transform=`translate3d(${ox}px,${oy}px,0) scale(${S})`}
+let down=null,moved=0,raf=0;
+function loop(){if(!down){vx*=.93;vy*=.93;ox+=vx;oy+=vy;place();if(Math.abs(vx)+Math.abs(vy)>.2){raf=requestAnimationFrame(loop);return}}raf=0}
+const busy=()=>document.body.classList.contains("detail");
+stage.addEventListener("pointerdown",e=>{if(busy())return;down={x:e.clientX,y:e.clientY,t:performance.now()};moved=0;vx=vy=0;stage.setPointerCapture(e.pointerId)});
+stage.addEventListener("pointermove",e=>{cursor(e);if(!down)return;const dx=e.clientX-down.x,dy=e.clientY-down.y,dt=Math.max(16,performance.now()-down.t);moved+=Math.abs(dx)+Math.abs(dy);if(moved>6)stage.classList.add("drag");ox+=dx;const want=oy+dy;oy=want;vx=dx*16/dt;vy=dy*16/dt;down={x:e.clientX,y:e.clientY,t:performance.now()};place();const over=want-oy;if(e.pointerType!=="mouse"&&Math.abs(over)>0)scrollBy(0,-over)});
+stage.addEventListener("pointerup",e=>{if(!down)return;down=null;stage.classList.remove("drag");if(moved<7){const t=document.elementFromPoint(e.clientX,e.clientY)?.closest("[data-p]");if(t)open(t.dataset.p,t.querySelector(".th"))}else if(!raf)raf=requestAnimationFrame(loop)});
+stage.addEventListener("pointercancel",()=>{down=null;stage.classList.remove("drag")});
+stage.addEventListener("wheel",e=>{if(busy())return;const h=Math.abs(e.deltaX)>Math.abs(e.deltaY);if(!h&&!e.shiftKey)return;e.preventDefault();ox-=h?e.deltaX:e.deltaY;place()},{passive:false});
+stage.addEventListener("keydown",e=>{const t=e.target.closest("[data-p]");if(e.key==="Enter"&&t){e.preventDefault();open(t.dataset.p,t.querySelector(".th"))}});
+stage.addEventListener("focusin",e=>{const t=e.target.closest("[data-p]");if(!t)return;const r=t.getBoundingClientRect();if(r.left<0||r.right>innerWidth||r.top<0||r.bottom>innerHeight){ox+=innerWidth/2-(r.left+r.width/2);oy+=innerHeight/2-(r.top+r.height/2);place()}});
+addEventListener("keydown",e=>{const k={ArrowLeft:[1,0],ArrowRight:[-1,0],ArrowUp:[0,1],ArrowDown:[0,-1]}[e.key];if(k&&!busy()&&!e.target.closest("input")){vx=k[0]*14;vy=k[1]*14;if(!raf)raf=requestAnimationFrame(loop)}if(e.key==="Escape")closeAll()});
+const cur=$("#cur"),fine=matchMedia("(hover:hover) and (pointer:fine)").matches;
+function cursor(e){if(!fine)return;cur.style.left=e.clientX+"px";cur.style.top=e.clientY+"px";const over=!down&&!busy()&&e.target.closest?.("[data-p]");cur.classList.toggle("on",!!over);stage.style.cursor=over?"none":""}
+stage.addEventListener("pointerleave",()=>cur.classList.remove("on"));
+const F=[["Formato","fmt",["Grátis","Guia","Curso","Empresas"]],["Estante","shelf",["Dados","Marketing de performance","Bastidores"]],["Ferramenta","tool",Object.keys(T)]];
+const ok=(p,f)=>!f||(f.k==="fmt"?p.fmt===f.v:f.k==="shelf"?(p.shelf===f.v||p.shelf==="Todas"):p.tools.includes(f.v));
+$("#fcols").innerHTML=F.map(([h,k,vs])=>`<div><h3>${h}</h3><button class="opt" data-k="" data-v="">Tudo<sup>${Object.keys(P).length}</sup></button>${vs.map(v=>`<button class="opt" data-k="${k}" data-v="${v}">${T[v]||v}<sup>${Object.values(P).filter(p=>ok(p,{k,v})).length}</sup></button>`).join("")}</div>`).join("");
+const fp=$("#fpanel"),fb=$("#fbtn");
+fb.onclick=e=>{if(e.target.classList.contains("x")){setF(null);return}fp.classList.add("open");fb.setAttribute("aria-expanded","true")};
+fp.querySelector(".close").onclick=()=>{fp.classList.remove("open");fb.setAttribute("aria-expanded","false")};
+fp.addEventListener("click",e=>{const b=e.target.closest(".opt");if(b)setF(b.dataset.k?{k:b.dataset.k,v:b.dataset.v}:null)});
+function applyF(){cam.querySelectorAll("[data-p]").forEach(el=>el.classList.toggle("fade",!ok(P[el.dataset.p],filter)))}
+function setF(f){filter=f;fp.classList.remove("open");fb.classList.toggle("on",!!f);$("#flabel").textContent=f?(T[f.v]||f.v).toLowerCase():"filtrar";fp.querySelectorAll(".opt").forEach(o=>o.classList.toggle("sel",!!f&&o.dataset.k===f.k&&o.dataset.v===f.v));applyF()}
+const det=$("#detail"),dt=$("#dthumb");
+function open(id,fromTh){const p=P[id];if(!p)return;
+ det.innerHTML=`<section class="d-hero"><h2 class="d-title">${p.t1}<br>${p.t2}<em>${p.em}</em></h2><span class="d-down">Role para ver os detalhes ↓</span></section>
+ <section class="d-body"><div class="info"><div class="lab"><span class="step">${p.step}</span><span class="kind${p.free?" free":""}">${p.kind}</span></div><h2>${p.t1} ${p.t2}<em>${p.em}</em></h2><span class="url">modoagentico.com.br/${p.slug}</span><p class="quote">“${p.quote}”</p>
+ <dl class="specs">${p.specs.map(([a,b])=>`<dt>${a}</dt><dd>${b}</dd>`).join("")}</dl>
+ <div class="chips">${p.tools.map(k=>`<span class="chip"><img src="img/${k}.png" alt="">${T[k]}</span>`).join("")}</div>
+ <details open><summary>O QUE VOCÊ RECEBE</summary><ul>${p.rec.map(x=>`<li>${x}</li>`).join("")}</ul></details>
+ ${p.fmt==="Guia"?`<details><summary>COMO CADA GUIA FUNCIONA</summary><ul>${COMO.map(x=>`<li>${x}</li>`).join("")}</ul></details>`:""}
+ <details><summary>PRONTO QUANDO</summary><p>${p.pronto}</p></details>
+ <details><summary>PRECISO DE PLANO PAGO DE IA?</summary><p>Você precisa de uma versão que aceite arquivos e rode cálculos. Confira o que o seu plano inclui.</p></details>
+ <div class="buy"><span class="price">${p.price}</span><button class="btn" data-buy="${id}">${p.cta}</button></div>
+ <p class="next">Próximo passo da trilha: <button data-go="${p.next}">${P[p.next].name} →</button></p></div>
+ <div class="gal"><h3>Amostra</h3>${p.gal.map(g=>`<img src="img/${g}.jpg" alt="Página de ${p.name}" loading="lazy">`).join("")}</div></section>`;
+ document.body.classList.add("detail");det.scrollTop=0;cur.classList.remove("on");stage.style.cursor="";
+ if(location.hash!=="#"+p.slug)history.replaceState(null,"","#"+p.slug);
+ const sc=Math.min(2.2,innerWidth*.78/280,innerHeight*.46/196);dt.innerHTML=THUMB[id];dt.style.setProperty("--s",sc);dt.style.opacity=1;dt.classList.remove("go");
+ if(fromTh&&!matchMedia("(prefers-reduced-motion:reduce)").matches){const r=fromTh.getBoundingClientRect();dt.style.left=r.left+r.width/2+"px";dt.style.top=r.top+r.height/2+"px";dt.style.transform=`translate(-50%,-50%) scale(${r.width/280})`;void dt.offsetWidth;dt.classList.add("go")}
+ dt.style.left="50%";dt.style.top=innerWidth<760?"64%":"52%";dt.style.transform="";
+}
+det.addEventListener("scroll",()=>{dt.style.opacity=Math.max(0,1-det.scrollTop/(innerHeight*.5))});
+function closeAll(){document.body.classList.remove("detail");dt.style.opacity=0;document.querySelectorAll(".modal.open").forEach(m=>m.classList.remove("open"));fp.classList.remove("open");if(location.hash)history.replaceState(null,"",location.pathname+location.search)}
+$("#back").onclick=closeAll;$("#home").onclick=e=>{e.preventDefault();closeAll();setF(null)};
+$("#copy").onclick=async()=>{try{await navigator.clipboard.writeText(location.href);toast("Link copiado")}catch(_){toast("Link: "+location.hash)}};
+const burger=$("#burger");burger.onclick=()=>{const o=!document.body.classList.contains("sheet");document.body.classList.toggle("sheet",o);burger.setAttribute("aria-expanded",o);burger.textContent=o?"×":"☰"};
+const closeSheet=()=>{document.body.classList.remove("sheet");burger.setAttribute("aria-expanded","false");burger.textContent="☰"};
+document.addEventListener("click",e=>{
+ if(e.target.closest("#sheetnav a"))closeSheet();
+ const sc=e.target.closest("[data-scroll]");if(sc){e.preventDefault();closeAll();document.getElementById(sc.dataset.scroll).scrollIntoView();return}
+ if(e.target.closest("[data-guias]")){e.preventDefault();closeAll();scrollTo(0,0);setF({k:"fmt",v:"Guia"});return}
+ const g=e.target.closest("[data-go]");if(g){open(g.dataset.go);return}
+ if(e.target.closest("[data-kit]")||e.target.closest('[data-buy="kit"]')){document.querySelectorAll(".modal").forEach(m=>m.classList.remove("open"));$("#mkit").classList.add("open");$("#kn").focus();return}
+ if(e.target.closest("[data-buy]"))toast("No site, este botão abre o checkout da Kiwify.");
+  if(e.target.classList.contains("modal")||e.target.closest(".box .x"))e.target.closest(".modal").classList.remove("open");
+});
+$("#fkit").onsubmit=e=>{e.preventDefault();$("#mkit").classList.remove("open");toast("No site, o kit chega no seu e-mail. Este protótipo não envia nada.")};
+let tt;function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("on");clearTimeout(tt);tt=setTimeout(()=>t.classList.remove("on"),2600)}
+function center(){ox=innerWidth/2-1040*S;oy=innerHeight/2-600*S+10;place()}
+build();center();
+setTimeout(()=>$("#tg").classList.remove("off"),350);
+addEventListener("resize",()=>{build();center()});
+const route=()=>{const h=location.hash.slice(1),k=BYSLUG[h];if(k)open(k);else if(h==="termos"||h==="privacidade"){toast("No site, esta página já existe.");history.replaceState(null,"",location.pathname)}else if(!h)closeAll()};
+addEventListener("hashchange",route);if(location.hash)setTimeout(route,300);
+}
+</script>
+</body>
+</html>
