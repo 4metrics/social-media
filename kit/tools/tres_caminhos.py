@@ -2,7 +2,7 @@
 import sys
 sys.path.insert(0, "/home/claude/tools")
 from ds4m import *
-V = "v2"
+V = "v3"
 OUT = "/home/claude/out/tres-caminhos"
 C = f"2027-02-05-tres-caminhos-{V}"
 
@@ -73,7 +73,7 @@ hub = f'''<div style="position:relative;width:{W}px;height:{H}px">
 <svg width="{W}" height="{H}" style="position:absolute;inset:0"><g style="stroke:var(--strong);stroke-width:1.5;stroke-dasharray:4 4;fill:none">{lines}</g><g style="fill:var(--brand)">{dots}</g></svg>
 <span class="pill" style="left:0;top:0;width:100px">Glossário</span><span class="pill" style="left:108px;top:0;width:160px">Camada semântica</span><span class="pill" style="left:280px;top:0;width:196px">Regras versionadas</span>
 <span class="box" style="left:0;top:{ai_y-18}px;height:36px;width:96px">{ico("message",16)} Pergunta</span>
-<span class="node hot" style="position:absolute;left:{ai_x-30}px;top:{ai_y-30}px;width:60px;height:60px;border-radius:16px;box-shadow:var(--sglow)">{ico("cpu",28)}</span>
+<span class="node" style="position:absolute;left:{ai_x-30}px;top:{ai_y-30}px;width:60px;height:60px;border-radius:16px;background:#05131C;border-color:rgba(146,197,73,0.6);box-shadow:var(--sglow)"><img src="file://{LOGOS}/4metrics-simbolo-negativo.svg" style="width:40px;height:40px"></span>
 {"".join(f'<span class="box" style="left:312px;top:{y-18}px;height:36px;width:164px"><span class="strong" style="display:flex">{ico("check",16)}</span>{t}</span>' for y,t in ((96,"WhatsApp"),(150,"Slack e Teams"),(204,"Agentes via MCP")))}
 <span class="ann" style="position:absolute;left:0;top:{H-20}px">Você controla o que a IA lê e responde.</span></div>'''
 yml = '<pre class="code"><span class="k">metric:</span> cliente_ativo\n<span class="k">regra:</span>  compra faturada nos últimos 90 dias\n<span class="k">fonte:</span>  erp.pedidos\n<span class="k">versao:</span> v2 <span class="c"># aprovada pelo comercial</span></pre>'
