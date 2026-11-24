@@ -22,6 +22,7 @@ Este arquivo é a fonte de verdade da rotina semanal de conteúdo. Leia tudo ant
 - Efeitos: malha de pontos, brilho verde suave, bordas com brilho verde, cantos 8px (botões), 16px+ (cards), pílulas.
 - Tema claro é o principal. 4 fundos para variar o feed: claro, névoa, escuro, lima (lima no máximo 1 a cada 5). Nunca duas capas seguidas com o mesmo fundo.
 - Rodapé: só o logo. NUNCA "@4metrics", nunca "tela real", "dados de demonstração", "ilustrativo", "simulação", "exemplo" ou parecidos, nem na arte nem na legenda.
+- ATENÇÃO (Gabriel, 24/11/2026): as telas em kit/assets/plataforma estão desatualizadas (a plataforma mudou bastante). Não use até chegarem telas novas; prefira ilustrações da marca.
 - Telas da plataforma (kit/assets/plataforma): sempre em mockups (navegador reto ou notebook, sem perspectiva diagonal), e o texto deve descrever exatamente o que a tela mostra. Ofereça variações de layout.
 - Evite artes pesadas: priorize respiro e poucos elementos.
 
